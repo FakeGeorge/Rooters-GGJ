@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Follow_Enemy : MonoBehaviour
-{
-    public float speed;
+{  
     public Transform target;
 
     public float minimumDistance;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public float speed;
+    public float attackDamage;
 
     // Update is called once per frame
     void Update()
+    {
+
+        FollowTarget();
+    }
+
+    public void FollowTarget()
     {
         if (Vector2.Distance(transform.position, target.position) > minimumDistance)
         {
@@ -25,7 +27,6 @@ public class Follow_Enemy : MonoBehaviour
         {
             Debug.Log("Attack");
         }
-
     }
 
     
