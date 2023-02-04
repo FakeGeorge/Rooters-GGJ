@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+
 namespace Pathfinding {
 	/// <summary>
 	/// Sets the destination of an AI to the position of a specified object.
@@ -18,6 +19,7 @@ namespace Pathfinding {
 		public Transform target;
 
 		public float minimumDistance;
+
 
 		IAstarAI ai;
 
@@ -40,12 +42,11 @@ namespace Pathfinding {
             {
 				if (Vector2.Distance(transform.position, target.position) > minimumDistance)
                 {
-					ai.destination = target.position;
+					ai.destination = new Vector3 (target.position.x, target.position.y, 0f);
 				}
 				else
                 {
-					ai.destination = this.transform.position;
-
+					ai.destination = new Vector3 (this.transform.position.x, this.transform.position.y, 0f);
 				}
 					
 			}

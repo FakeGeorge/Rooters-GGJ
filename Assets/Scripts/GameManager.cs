@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     float enemyType;
 
+    public GameObject enemyCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,36 +36,25 @@ public class GameManager : MonoBehaviour
         xRandomSpawn = Random.Range(-20, 21);
         yRandomSpawn = Random.Range(-20, 21);
 
-
-        //Debug.Log("x " + xRandomSpawn);
-        //Debug.Log("y " + yRandomSpawn);
         
         if (xRandomSpawn > -xminimumDistance && xRandomSpawn < 0)
         {
-            Debug.Log("x antes me la pela" + xRandomSpawn);
             xRandomSpawn = -Random.Range(20, 6);
-            Debug.Log("x despues me la pela" + xRandomSpawn);
         }
 
         if (xRandomSpawn >= 0 && xRandomSpawn < xminimumDistance)
         {
-            Debug.Log("x antes me la pela" + xRandomSpawn);
             xRandomSpawn = Random.Range(5, 21);
-            Debug.Log("x despues me la pela" + xRandomSpawn);
         }
 
         if (yRandomSpawn >= 0 && yRandomSpawn < yminimumDistance)
         {
-            Debug.Log("y antes me la pela" + yRandomSpawn);
             yRandomSpawn = Random.Range(5, 21);
-            Debug.Log("y despues me la pela" + yRandomSpawn);
         }
 
         if (yRandomSpawn > -yminimumDistance && yRandomSpawn < 0)
         {
-            Debug.Log("y antes me la pela" + yRandomSpawn);
             yRandomSpawn = -Random.Range(20, 6);
-            Debug.Log("y despues me la pela" + yRandomSpawn);
         }
 
         if (enemyType == 0)
@@ -72,9 +63,9 @@ public class GameManager : MonoBehaviour
         }
         else if (enemyType == 1)
         {
-            Instantiate(enemyTree.gameObject, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
-            Debug.Log("x " + xRandomSpawn);
-            Debug.Log("y " + yRandomSpawn);
+            GameObject myEnemy = Instantiate(enemyTree.gameObject, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            GameObject myCollider = Instantiate(enemyCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            myCollider.GetComponent<Tree_Enemy>().enemigo = myEnemy.transform;
         }
         //yield return new WaitForSeconds(2);
         //yield return StartCoroutine("SpawnEnemigos");
