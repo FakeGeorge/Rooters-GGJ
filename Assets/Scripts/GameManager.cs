@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     float enemyType;
 
+    public GameObject enemyTreeCollider;
     public GameObject enemyCollider;
 
     // Start is called before the first frame update
@@ -59,12 +60,14 @@ public class GameManager : MonoBehaviour
 
         if (enemyType == 0)
         {
-            Instantiate(enemy.gameObject, new Vector2(enemy.position.x + xRandomSpawn, enemy.position.y + yRandomSpawn), Quaternion.identity);
+            GameObject myEnemy = Instantiate(enemy.gameObject, new Vector2(enemy.position.x + xRandomSpawn, enemy.position.y + yRandomSpawn), Quaternion.identity);
+            GameObject myCollider = Instantiate(enemyCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            myCollider.GetComponent<Base_Enemy>().enemigo = myEnemy.transform;
         }
         else if (enemyType == 1)
         {
             GameObject myEnemy = Instantiate(enemyTree.gameObject, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
-            GameObject myCollider = Instantiate(enemyCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            GameObject myCollider = Instantiate(enemyTreeCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
             myCollider.GetComponent<Tree_Enemy>().enemigo = myEnemy.transform;
         }
         //yield return new WaitForSeconds(2);

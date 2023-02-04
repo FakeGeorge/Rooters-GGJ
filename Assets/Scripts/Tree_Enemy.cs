@@ -24,7 +24,7 @@ public class Tree_Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Dentro");
+        Debug.Log("Dentro tree");
         if (collision.gameObject.CompareTag("Tree") && timer > 2f)
         {
             timer = 0;
