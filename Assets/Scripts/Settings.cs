@@ -8,6 +8,22 @@ public class Settings : MonoBehaviour
     [SerializeField] GameObject settingsMenu;
 
     [SerializeField] AudioMixer AM;
+    [SerializeField] AudioSource BGM, SFX;
+    //[SerializeField] AudioClip BGM_Menu, BGM_Game;
+
+    public void PlaySFX(AudioClip clip)
+    {
+        SFX.clip = clip;
+        SFX.pitch = Random.Range(0.8f, 1.2f);
+        SFX.Play();
+    }
+
+    public void changeBGM(AudioClip clip)
+    {
+        BGM.clip = clip;
+        BGM.Stop();
+        BGM.Play();
+    }
 
     private void Start()
     {

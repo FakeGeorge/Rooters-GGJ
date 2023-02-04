@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] Settings settings;
+    [SerializeField] AudioClip BGMIngame;
     [SerializeField] float timeforStart; //por si animación
     public void StartGame()
     {
@@ -14,6 +16,7 @@ public class MainMenu : MonoBehaviour
     IEnumerator StartAnim()
     {
         yield return new WaitForSeconds(timeforStart);
+        settings.changeBGM(BGMIngame);
         SceneManager.LoadScene("Juego"); //Juego = nombre de la escena del juego
     }
 

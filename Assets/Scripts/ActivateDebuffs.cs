@@ -11,11 +11,6 @@ public class ActivateDebuffs : MonoBehaviour
 
     [SerializeField] GameObject card1, card2, card3, canvas;
 
-    private void Start()
-    {
-        RandomDebuffs();
-    }
-
     public void RandomDebuffs()  //Ejecutar cuando haya que mostrar debuffs
     {
         foreach (Debuffs debuff in myDebuffs)
