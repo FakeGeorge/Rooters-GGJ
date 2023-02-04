@@ -23,31 +23,47 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         miEpoca = Epocas.prehistoria;
-        StartCoroutine("SpawnEnemigos");
-        //InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
+        //StartCoroutine("SpawnEnemigos");
+        InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
     }
 
-    IEnumerator SpawnEnemigos ()
+    void SpawnEnemigos ()
     {
         enemyType = Random.Range(0, 2);
 
-        xRandomSpawn = Random.Range(-20, 20);
-        yRandomSpawn = Random.Range(-20, 20);
+        xRandomSpawn = Random.Range(-20, 21);
+        yRandomSpawn = Random.Range(-20, 21);
 
 
         //Debug.Log("x " + xRandomSpawn);
         //Debug.Log("y " + yRandomSpawn);
         
-        if (xRandomSpawn >= - xminimumDistance && xRandomSpawn <= 0)
+        if (xRandomSpawn > -xminimumDistance && xRandomSpawn < 0)
         {
-            xRandomSpawn = Random.Range(-20, -6);
-            Debug.Log("me la pela");
+            Debug.Log("x antes me la pela" + xRandomSpawn);
+            xRandomSpawn = -Random.Range(20, 6);
+            Debug.Log("x despues me la pela" + xRandomSpawn);
         }
 
-        if (yRandomSpawn >= 0 && yRandomSpawn <= yminimumDistance)
+        if (xRandomSpawn >= 0 && xRandomSpawn < xminimumDistance)
         {
+            Debug.Log("x antes me la pela" + xRandomSpawn);
+            xRandomSpawn = Random.Range(5, 21);
+            Debug.Log("x despues me la pela" + xRandomSpawn);
+        }
+
+        if (yRandomSpawn >= 0 && yRandomSpawn < yminimumDistance)
+        {
+            Debug.Log("y antes me la pela" + yRandomSpawn);
             yRandomSpawn = Random.Range(5, 21);
-            Debug.Log("me la pela x2");
+            Debug.Log("y despues me la pela" + yRandomSpawn);
+        }
+
+        if (yRandomSpawn > -yminimumDistance && yRandomSpawn < 0)
+        {
+            Debug.Log("y antes me la pela" + yRandomSpawn);
+            yRandomSpawn = -Random.Range(20, 6);
+            Debug.Log("y despues me la pela" + yRandomSpawn);
         }
 
         if (enemyType == 0)
@@ -60,7 +76,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("x " + xRandomSpawn);
             Debug.Log("y " + yRandomSpawn);
         }
-        yield return new WaitForSeconds(2);
-        yield return StartCoroutine("SpawnEnemigos");
+        //yield return new WaitForSeconds(2);
+        //yield return StartCoroutine("SpawnEnemigos");
     }
 }

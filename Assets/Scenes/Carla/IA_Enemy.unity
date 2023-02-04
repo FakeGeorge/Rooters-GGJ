@@ -339,8 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1833687784}
   enemyTree: {fileID: 1059252353}
-  xminimumDistance: 0
-  yminimumDistance: 0
+  xminimumDistance: 5
+  yminimumDistance: 5
 --- !u!4 &1163215799
 Transform:
   m_ObjectHideFlags: 0
