@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
 	bool mouseLeft, mouseRigth, canShoot;
 	float lastShot = 0, timeBetweenShots = 0.25f;
 	Vector3 mousePos, mouseVector;
-	public Transform gunSprite, gunTip;
-	public SpriteRenderer gunRend;
+	public Transform gunSprite, gunTip, armaMeleeSprite;
+	public SpriteRenderer gunRend, armaMeleeRend;
 	int playerSortingOrder = 20;
 	public GameObject bulletPrefab;
 	CameraController Cam;
@@ -66,9 +66,15 @@ public class PlayerController : MonoBehaviour
 		float gunAngle = -1 * Mathf.Atan2(mouseVector.y, mouseVector.x) * Mathf.Rad2Deg; //find angle in degrees from player to cursor
 		gunSprite.rotation = Quaternion.AngleAxis(gunAngle, Vector3.back); //rotate gun sprite around that angle
 		gunRend.sortingOrder = playerSortingOrder - 1; //put the gun sprite bellow the player sprite
-		if (gunAngle > 0){ //put the gun on top of player if it's at the correct angle
+
+		armaMeleeSprite.rotation = Quaternion.AngleAxis(gunAngle, Vector3.back);
+		armaMeleeRend.sortingOrder = playerSortingOrder - 1;
+
+		if (gunAngle > 0)
+		{ //put the gun on top of player if it's at the correct angle
 			gunRend.sortingOrder = playerSortingOrder + 1;
-		}
+			armaMeleeRend.sortingOrder = playerSortingOrder + 1;
+		} 
 	}
 
 	void Shooting()

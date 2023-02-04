@@ -10154,7 +10154,9 @@ MonoBehaviour:
   armaMelee: {fileID: 384765882}
   gunSprite: {fileID: 1032118077}
   gunTip: {fileID: 123082596}
+  armaMeleeSprite: {fileID: 384765883}
   gunRend: {fileID: 763917432}
+  armaMeleeRend: {fileID: 869390515}
   bulletPrefab: {fileID: 1608711331390680, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
 --- !u!4 &1215353461
 Transform:
