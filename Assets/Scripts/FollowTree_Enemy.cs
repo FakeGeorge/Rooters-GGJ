@@ -2,22 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Follow_Enemy : MonoBehaviour
-{  
+public class FollowTree_Enemy : MonoBehaviour
+{
     public Transform target;
 
     public float minimumDistance;
     public float speed;
     public float attackDamage;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-
-        FollowTarget();
+        FollowTargetTree();
     }
 
-    public void FollowTarget()
+    public void FollowTargetTree()
     {
         if (Vector2.Distance(transform.position, target.position) > minimumDistance)
         {
@@ -28,6 +33,4 @@ public class Follow_Enemy : MonoBehaviour
             Debug.Log("Attack");
         }
     }
-
-    
 }
