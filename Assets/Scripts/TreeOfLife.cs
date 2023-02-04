@@ -17,6 +17,7 @@ public class TreeOfLife : MonoBehaviour
     public void GetDamage(float damage)
     {
         hp -= damage;
+
         //animación de ser golpeado/particulas/algo
 
         if (hp <= hp*.75f && GameManager.miEpoca == GameManager.Epocas.prehistoria)  //si está a 75% vida y en prehistoria, cambia a medievo

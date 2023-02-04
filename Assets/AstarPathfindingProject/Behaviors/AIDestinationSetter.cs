@@ -45,7 +45,8 @@ namespace Pathfinding {
 				else
                 {
 					ai.destination = this.transform.position;
-                }
+
+				}
 					
 			}
 				

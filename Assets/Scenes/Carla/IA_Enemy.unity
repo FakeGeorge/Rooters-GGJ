@@ -217,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846220508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.46, y: 2.39, z: 0}
+  m_LocalPosition: {x: 6.71, y: 2.84, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -322,7 +322,8 @@ GameObject:
   - component: {fileID: 1059252355}
   - component: {fileID: 1059252354}
   - component: {fileID: 1059252356}
-  m_Layer: 7
+  - component: {fileID: 1059252357}
+  m_Layer: 0
   m_Name: EnemyTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,15 +337,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059252350}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d051998398f31742b066dee05d6e37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2090017327}
-  minimumDistance: 1.2
-  speed: 2
-  attackDamage: 0
+  attackDamage: 2
 --- !u!212 &1059252352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -447,9 +445,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 2
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -497,6 +495,22 @@ MonoBehaviour:
   version: 1
   target: {fileID: 2090017327}
   minimumDistance: 1.5
+--- !u!58 &1059252357
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059252350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &1092916408
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIeycTxWjWwIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55CySdhyS4BhcmCghqTm4osst7EKWXJJMmvx72nJNnacyonm9evu14t8J1yaAphVeq15slEJkG8D4mzyadA6X+FCD0ru+Q0azgdPbOZI1HPeqeUK8dCFGZWD1Zx9lwfhyAGCpeSp0vkqOcBCGWsQTqkwgC6trIuWCN0H5II/w7kLuaI1mjrrhtY8GDzQZCAt6JbaEBtaxSolEzQvIHGSW/JoVLPDiiaxmZrhhDMlBDe1EmKvhe90X2SgwbWacIqN+erB5+kYkQz4IbMuczd8m6YGbC1K0+uSaxxRlZf8UNXccmqOlbITFaWrNA5HXlWVdPOPfxh6d6pV/trUDQNXw2acHd/plVFjO4PtwstWe+gHdKbiSGMBHxnIN7XWqpQJOq0uXWhpYLRs/z5bW2TAji1eSe2BZfH/9bgeHr77y0LwPPaj/FoBe6H8xP3yQeNufqJgfxqmToGoU/HbwC966N5Q7Xjh2lh01V1KJy9WpXZUsvIzc92UdqG0BA/XoguQVNjrDtPY/gp7vk7ZnueFutdSF699zSPohXi45QdBz7VT5+eyTKbOGzDZtrSCS2hFO8cbzmmhpKwurDuTJmxf6pSyTtih5Mnfp0VQQBqPJ/OUTr4wGLPheDYLY4gZS9lsMptNib89LrFPKnaV0Ho8uDXZJpd4Z81HZLDWtPDXnmh6XvNbrroCuUzVnmkAua1SPJWDxir4MJNVwnFCe7CWS79wco+IUOwISfSsGflWVxeradRmiUjBT8o6JCIL/9mIiIOfx7zTcOJwdsWbZA/y+ANQSwMEFAAACAgAAAgh7Df+FnltAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKhgUFakqmZZVqimXFyqmmyrqmFhWFSalJyclqyhZmFhblSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7JxPFaNbAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7Df+FnltAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIexwY5bcXAIAABQFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziWDaSGktxYI6YHAhHRy8UXIa6xBljySzFeG/95d2cYunZ4Q773dfbta+ZNJ7QoQ3tiFlcnSJMC+9xid2ZdeS77Aie+M3sgLNJoPmfiMRDxo3riXBvGIwpzJwVspfuidIvEAwVLL1Nh8nuxgapx3CKdcOUDKGk/RGqHPHjvhT/+JQs54Gj7S6YKnp0HvikcB2oNtpY2wkVWqUgvF8wISstyKh8NaHVUyjc3UCjIujFLS1U6YPxeh002RgQVqNZEcGwvVo4fJCJEM5C7zlLkbvkpTB742Zfl5Ji2OqMrLfppqbjl3+8rZgauSKo2iYXBVJV3+w/ejQKfW5C9N3WhANXwmxf6NnwV3vjPYLjzreA8DOnK151sFHxnoV7OwptQJkt6WFFo6GM7av7fWphmIfYtXVu/Asvj/9VAP19D9aapkviXq4VsFbJQJEw+XDxbv5hcaDqvh6hSIkovfDt75rrtDNfEsrfNI1V1qsrc1pSUpm4eZUTelnxqrIcC16QI0V/68xjT+/grvuE7ZO+aZ02upi9dc8wjuQgLc6geDO2ptjrfLcpk5LsFlq9IrqaE1TcQrzmlqtK42rDuTJmxT2pSLTtiulMnfq8XQQLodjZ9SPv4qYCT6o8kk2sJWiFRMxpPJIwu7JzX2ydW6MlqPB29Nt8k17lnzEektLC/CtieWHxfykpvOyKVOzUZYAL2qMtyMg8Ui+C6TeSJxQBvwXupw3+wzZsqIPSTxLVEcOp2fvOVxmyVmhTwYT0jMpuGrETOCb7u8tnCQcKTiTbIru/4BUEsDBBQAAAgIAAAIIew3/hZ5bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSoYFBWpKpmWVaoplxcqppsq6phYVhUmpScnJasoWZhYW5UixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIexwY5bcXAIAABQFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIew3/hZ5bQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -560,7 +574,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
@@ -645,7 +659,7 @@ GameObject:
   - component: {fileID: 1592419381}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,7 +762,7 @@ GameObject:
   - component: {fileID: 1833687787}
   - component: {fileID: 1833687789}
   - component: {fileID: 1833687790}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,9 +848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60322a8026020514abd540c493387d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1592419380}
-  minimumDistance: 1.2
-  speed: 2
   attackDamage: 0
 --- !u!114 &1833687787
 MonoBehaviour:
@@ -873,9 +884,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
+  slowdownDistance: 2
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 1
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -930,7 +941,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833687782}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -938,7 +949,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
 --- !u!1 &1959014656
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +961,7 @@ GameObject:
   - component: {fileID: 1959014659}
   - component: {fileID: 1959014658}
   - component: {fileID: 1959014657}
+  - component: {fileID: 1959014660}
   m_Layer: 9
   m_Name: Obstacle2
   m_TagString: Untagged
@@ -1033,13 +1045,34 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959014656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: -1.84, z: 0}
+  m_LocalPosition: {x: -7.13, y: -1.73, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1959014660
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959014656}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2090017325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,6 +1084,7 @@ GameObject:
   - component: {fileID: 2090017327}
   - component: {fileID: 2090017326}
   - component: {fileID: 2090017328}
+  - component: {fileID: 2090017329}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
@@ -1118,7 +1152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090017325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03000021, y: 0.1400001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1141,3 +1175,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
+--- !u!114 &2090017329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090017325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4168853c885178d4280a36d8a68b58ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 20
+  mySprites: []
