@@ -240,6 +240,7 @@ MonoBehaviour:
   target: {fileID: 2090017327}
   minimumDistance: 1.2
   speed: 2
+  attackDamage: 0
 --- !u!212 &1059252352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -338,6 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1833687784}
   enemyTree: {fileID: 1059252353}
+  xminimumDistance: 0
+  yminimumDistance: 0
 --- !u!4 &1163215799
 Transform:
   m_ObjectHideFlags: 0
@@ -535,9 +538,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60322a8026020514abd540c493387d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
   target: {fileID: 1592419380}
   minimumDistance: 1.2
+  speed: 2
+  attackDamage: 0
 --- !u!58 &1833687786
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -564,9 +568,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2090017327}
   - component: {fileID: 2090017326}
+  - component: {fileID: 2090017328}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,3 +643,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2090017328
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090017325}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4

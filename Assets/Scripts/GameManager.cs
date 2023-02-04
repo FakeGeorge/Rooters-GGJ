@@ -11,28 +11,56 @@ public class GameManager : MonoBehaviour
     public static Epocas miEpoca;
 
     float randomSpawn;
+    float xRandomSpawn;
+    float yRandomSpawn;
+
+    public float xminimumDistance;
+    public float yminimumDistance;
+
     float enemyType;
 
     // Start is called before the first frame update
     void Start()
     {
         miEpoca = Epocas.prehistoria;
-        //StartCoroutine("SpawnEnemigos");
-        InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
+        StartCoroutine("SpawnEnemigos");
+        //InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
     }
 
-    void SpawnEnemigos ()
+    IEnumerator SpawnEnemigos ()
     {
         enemyType = Random.Range(0, 2);
-        randomSpawn = Random.Range(-9, 9);
-       
+
+        xRandomSpawn = Random.Range(-20, 20);
+        yRandomSpawn = Random.Range(-20, 20);
+
+
+        //Debug.Log("x " + xRandomSpawn);
+        //Debug.Log("y " + yRandomSpawn);
+        
+        if (xRandomSpawn >= - xminimumDistance && xRandomSpawn <= 0)
+        {
+            xRandomSpawn = Random.Range(-20, -6);
+            Debug.Log("me la pela");
+        }
+
+        if (yRandomSpawn >= 0 && yRandomSpawn <= yminimumDistance)
+        {
+            yRandomSpawn = Random.Range(5, 21);
+            Debug.Log("me la pela x2");
+        }
+
         if (enemyType == 0)
         {
-            Instantiate(enemy.gameObject, new Vector2(randomSpawn, randomSpawn), Quaternion.identity);
+            Instantiate(enemy.gameObject, new Vector2(enemy.position.x + xRandomSpawn, enemy.position.y + yRandomSpawn), Quaternion.identity);
         }
-        else
+        else if (enemyType == 1)
         {
-            Instantiate(enemyTree.gameObject, new Vector2(randomSpawn, randomSpawn), Quaternion.identity);
+            Instantiate(enemyTree.gameObject, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            Debug.Log("x " + xRandomSpawn);
+            Debug.Log("y " + yRandomSpawn);
         }
+        yield return new WaitForSeconds(2);
+        yield return StartCoroutine("SpawnEnemigos");
     }
 }
