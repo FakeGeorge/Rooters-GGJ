@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
 	public GameObject armaDistancia, armaMelee;
 
+	public Animator animator;
+
 	bool mouseLeft, mouseRigth, canShoot;
 	float lastShot = 0, timeBetweenShots = 0.25f;
 	Vector3 mousePos, mouseVector;
@@ -59,6 +61,8 @@ public class PlayerController : MonoBehaviour
 	void Movement()
 	{
 		rb.MovePosition(rb.position + movimiento * speed * Time.fixedDeltaTime);
+
+		Debug.Log(movimiento.x + movimiento.y);
 	}
 
 	void Animation()

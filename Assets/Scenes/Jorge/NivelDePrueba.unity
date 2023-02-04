@@ -10152,6 +10152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armaDistancia: {fileID: 1032118076}
   armaMelee: {fileID: 384765882}
+  animator: {fileID: 1932091832}
   gunSprite: {fileID: 1032118077}
   gunTip: {fileID: 123082596}
   armaMeleeSprite: {fileID: 384765883}
@@ -10166,7 +10167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215353459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10190,7 +10191,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.023530751, y: -0.18152285}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10201,7 +10202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.7}
+  m_Size: {x: 0.6353074, y: 1.1302764}
   m_EdgeRadius: 0
 --- !u!50 &1215353463
 Rigidbody2D:
@@ -16052,6 +16053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1932091830}
   - component: {fileID: 1932091831}
+  - component: {fileID: 1932091832}
   m_Layer: 6
   m_Name: CuerpoSprite
   m_TagString: Untagged
@@ -16068,7 +16070,7 @@ Transform:
   m_GameObject: {fileID: 1932091829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.7, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1156816317}
@@ -16115,17 +16117,37 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: 21300000, guid: df11c361b3e63624c8a38d02e1d604a7, type: 3}
-  m_Color: {r: 0.89411765, g: 0.47058824, b: 0.1254902, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 05b111ee06f49754484739fc97f6abad, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 0.24, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1932091832
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932091829}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54ed108642bf0a5468882a8004acac24, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1934694913 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268015443284032, guid: 4c2f6e0bcfb64634e9ee042ff02ee68f, type: 3}
