@@ -7,6 +7,7 @@ public class ActivateDebuffs : MonoBehaviour
 {
 
     [SerializeField] List<Debuffs> myDebuffs = new List<Debuffs>();
+    List<Debuffs> canRemoveDebuffs = new List<Debuffs>();
 
     [SerializeField] GameObject card1, card2, card3;
 
@@ -17,13 +18,21 @@ public class ActivateDebuffs : MonoBehaviour
 
     public void RandomDebuffs()
     {
-        int a = Random.Range(0, myDebuffs.Count);
-        int b = Random.Range(0, myDebuffs.Count);
-        int c = Random.Range(0, myDebuffs.Count);
+        foreach (Debuffs debuff in myDebuffs)
+        {
+            canRemoveDebuffs.Add(debuff);
+        }
+        int a = Random.Range(0, canRemoveDebuffs.Count);
+        ChangeCardInfo(card1,canRemoveDebuffs[a]);
+        canRemoveDebuffs.RemoveAt(a);
 
-        ChangeCardInfo(card1, myDebuffs[a]);
-        ChangeCardInfo(card2, myDebuffs[b]);
-        ChangeCardInfo(card3, myDebuffs[c]);
+        int b = Random.Range(0, canRemoveDebuffs.Count);
+        ChangeCardInfo(card2, canRemoveDebuffs[b]);
+        canRemoveDebuffs.RemoveAt(b);
+
+        int c = Random.Range(0, canRemoveDebuffs.Count);
+        ChangeCardInfo(card3, canRemoveDebuffs[c]);
+        canRemoveDebuffs.RemoveAt(c);
     }
 
     void ChangeCardInfo( GameObject card,Debuffs debuff)
