@@ -40,9 +40,31 @@ public class PlayerController : MonoBehaviour
 		Animation(); //rotate the gun
 		Shooting(); //handle shooting
 		Melee();
+
+
+	}
+    private void Update()
+    {
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			animator.SetBool("moveIzq", true);
+		}
+		else if (Input.GetKeyUp(KeyCode.A))
+		{
+			animator.SetBool("moveIzq", false);
+		}
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+			animator.SetBool("moveDer", true);
+		}
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+			animator.SetBool("moveDer", false);
+		}
 	}
 
-	void GetInput()
+    void GetInput()
 	{
 		movimiento.x = Input.GetAxis("Horizontal"); 
 		movimiento.y = Input.GetAxis("Vertical"); //capture wasd and arrow controls
@@ -61,8 +83,6 @@ public class PlayerController : MonoBehaviour
 	void Movement()
 	{
 		rb.MovePosition(rb.position + movimiento * speed * Time.fixedDeltaTime);
-
-		Debug.Log(movimiento.x + movimiento.y);
 	}
 
 	void Animation()
