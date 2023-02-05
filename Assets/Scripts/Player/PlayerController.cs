@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+	//public SpriteRenderer PlayerFuturista, PlayerActual, PlayerEdadMedia, PlayerPrehistoria;
+	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
+
+	public Animator animatorMedieval;
+
 	float speed = 5;
 	Vector2 movimiento;
 
 	public GameObject armaDistancia, armaMelee;
-
-	public Animator animator;
 
 	bool mouseLeft, mouseRigth, canShoot;
 	float lastShot = 0, timeBetweenShots = 0.25f;
@@ -40,27 +43,43 @@ public class PlayerController : MonoBehaviour
 		Animation(); //rotate the gun
 		Shooting(); //handle shooting
 		Melee();
-
-
 	}
     private void Update()
     {
 		if (Input.GetKeyDown(KeyCode.A))
 		{
-			animator.SetBool("moveIzq", true);
+			animatorMedieval.SetBool("moveIzq", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.A))
 		{
-			animator.SetBool("moveIzq", false);
+			animatorMedieval.SetBool("moveIzq", false);
 		}
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-			animator.SetBool("moveDer", true);
+			animatorMedieval.SetBool("moveDer", true);
 		}
         else if (Input.GetKeyUp(KeyCode.D))
         {
-			animator.SetBool("moveDer", false);
+			animatorMedieval.SetBool("moveDer", false);
+		}
+
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			animatorMedieval.SetBool("moveDer", true);
+		}
+		else if (Input.GetKeyUp(KeyCode.W))
+		{
+			animatorMedieval.SetBool("moveDer", false);
+		}
+
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			animatorMedieval.SetBool("moveIzq", true);
+		}
+		else if (Input.GetKeyUp(KeyCode.S))
+		{
+			animatorMedieval.SetBool("moveIzq", false);
 		}
 	}
 
@@ -68,6 +87,8 @@ public class PlayerController : MonoBehaviour
 	{
 		movimiento.x = Input.GetAxis("Horizontal"); 
 		movimiento.y = Input.GetAxis("Vertical"); //capture wasd and arrow controls
+		movimiento.Normalize();
+
 		GetMouseInput();
 	}
 

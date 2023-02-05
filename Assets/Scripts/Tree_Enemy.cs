@@ -11,38 +11,64 @@ public class Tree_Enemy : MonoBehaviour
     public Transform enemigo;
 
     float timer;
+    float timeDif;
 
     Animator Anim;
+
+    public GameObject blood;
+    public GameObject bloodInstantiated;
+    public GameObject tree;
 
     private void Start()
     {
         health = maxHealth;
 
+        timer = Time.time;
+
         Anim = enemigo.GetComponent<Animator>();
+        tree = GameObject.FindGameObjectWithTag("Tree");
         Anim.SetBool("IsAttacking", false);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = new Vector3(enemigo.position.x, enemigo.position.y, 0f);
-        timer += Time.deltaTime;
+        timeDif = Time.time - timer;
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DestroyEnemy();
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    /*private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Dentro tree");
-        if (collision.gameObject.CompareTag("Tree") && timer > 2f)
+        if (collision.gameObject.CompareTag("Tree") && timeDif > 2f)
         {
-            timer = 0;
             Anim.SetBool("IsAttacking", true);
             collision.gameObject.GetComponent<TreeOfLife>().GetDamage(attackDamage);
-            Debug.Log("Estoy entrando Tree");
+            Debug.Log("timer despues " + timer);
+
+            timer = Time.time;
+        }
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Tree"))
+        {
+            Anim.SetBool("IsAttacking", true);
+            InvokeRepeating("RepeatAttack", 0, 2);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Anim.SetBool("IsAttacking", false);
+        if (collision.gameObject.CompareTag("Tree"))
+        {
+            Anim.SetBool("IsAttacking", false);
+            CancelInvoke();
+        }
     }
 
     public void TakeDamage(float damageValue)
@@ -53,15 +79,29 @@ public class Tree_Enemy : MonoBehaviour
         }
         else if (health <= 0)
         {
-            //Activar boliches
             DestroyEnemy();
         }
     }
 
     public void DestroyEnemy()
     {
+        bloodInstantiated = Instantiate(blood, transform.position, Quaternion.identity);
+        enemigo.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        Invoke("DestroyBlood", 1f);
+    }
+
+    void DestroyBlood()
+    {
+        Destroy(bloodInstantiated);
         Destroy(enemigo.gameObject);
         Destroy(gameObject);
     }
 
+    void RepeatAttack()
+    {
+        Anim.SetBool("IsAttacking", true);
+        tree.GetComponent<TreeOfLife>().GetDamage(attackDamage);
+        Debug.Log("timer despues " + timer);
+    }
 }
