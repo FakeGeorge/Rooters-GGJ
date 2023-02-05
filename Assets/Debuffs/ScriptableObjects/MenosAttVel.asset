@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: -Cadencia
   myDescription: baja la velocidad de ataque
-  ID: -Cadencia
-  mySprite: {fileID: 21300000, guid: e580de8f48519a14aa7466f2bfb5a749, type: 3}
+  ID: +CD
+  mySprite: {fileID: 21300000, guid: fa5f1efc55f7ba2429bd9ec5d639bdc6, type: 3}
