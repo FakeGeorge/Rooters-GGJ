@@ -51,6 +51,11 @@ public class TreeOfLife : MonoBehaviour
             currentSprite = mySprites[3];
             StartCoroutine("Transicion");
         }
+
+        if (hp <= 0f)
+        {
+            StartCoroutine("Dead");
+        }
         
     }
 
