@@ -57,7 +57,19 @@ public class Tree_Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Tree"))
         {
-            Anim.SetBool("IsAttacking", true);
+            if (tree.gameObject.transform.position.x-gameObject.transform.position.x >= 0)
+            {
+                Debug.Log(tree.gameObject.transform.position.x - gameObject.transform.position.x);
+                Debug.Log("lloro");
+                Anim.SetBool("IsRightAttack", true);
+                
+            }
+            else
+            {
+                Debug.Log("QUEEEE");
+                Anim.SetBool("IsAttacking", true);
+
+            }
             InvokeRepeating("RepeatAttack", 0, 2);
         }
     }
@@ -67,6 +79,7 @@ public class Tree_Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Tree"))
         {
             Anim.SetBool("IsAttacking", false);
+            Anim.SetBool("IsRightAttack", false);
             CancelInvoke();
         }
     }
@@ -100,7 +113,19 @@ public class Tree_Enemy : MonoBehaviour
 
     void RepeatAttack()
     {
-        Anim.SetBool("IsAttacking", true);
+        if (tree.gameObject.transform.position.x - gameObject.transform.position.x >= 0)
+        {
+            Debug.Log(tree.gameObject.transform.position.x - gameObject.transform.position.x);
+            Debug.Log("lloro");
+            Anim.SetBool("IsRightAttack", true);
+
+        }
+        else
+        {
+            Debug.Log("QUEEEE");
+            Anim.SetBool("IsAttacking", true);
+
+        }
         tree.GetComponent<TreeOfLife>().GetDamage(attackDamage);
     }
 }

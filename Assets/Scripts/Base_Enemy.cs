@@ -45,7 +45,19 @@ public class Base_Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Anim.SetBool("IsAttacking", true);
+            if (player.gameObject.transform.position.x - gameObject.transform.position.x >= 0)
+            {
+                Debug.Log(player.gameObject.transform.position.x - gameObject.transform.position.x);
+                Debug.Log("lloro");
+                Anim.SetBool("IsRightAttack", true);
+
+            }
+            else
+            {
+                Debug.Log("QUEEEE");
+                Anim.SetBool("IsAttacking", true);
+
+            }
             InvokeRepeating("RepeatAttack", 0, 2);
         }
     }
@@ -88,7 +100,19 @@ public class Base_Enemy : MonoBehaviour
 
     void RepeatAttack()
     {
-        Anim.SetBool("IsAttacking", true);
+        if (player.gameObject.transform.position.x - gameObject.transform.position.x >= 0)
+        {
+            Debug.Log(player.gameObject.transform.position.x - gameObject.transform.position.x);
+            Debug.Log("lloro");
+            Anim.SetBool("IsRightAttack", true);
+
+        }
+        else
+        {
+            Debug.Log("QUEEEE");
+            Anim.SetBool("IsAttacking", true);
+
+        }
         player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         Debug.Log("timer despues " + timer);
     }
