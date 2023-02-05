@@ -3493,7 +3493,7 @@ GameObject:
   m_Component:
   - component: {fileID: 384765883}
   m_Layer: 6
-  m_Name: Arma Melee
+  m_Name: ArmaMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3506,7 +3506,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384765882}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.212, y: -0.222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5941,7 +5941,7 @@ GameObject:
   - component: {fileID: 763917431}
   - component: {fileID: 763917432}
   m_Layer: 6
-  m_Name: ArmaSprite
+  m_Name: ArmaDistanciaSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6957,7 +6957,7 @@ GameObject:
   - component: {fileID: 869390514}
   - component: {fileID: 869390515}
   m_Layer: 6
-  m_Name: Arma Sprite
+  m_Name: ArmaMeleeSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8557,7 +8557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032118077}
   m_Layer: 6
-  m_Name: Arma Distancia
+  m_Name: ArmaDistancia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8570,7 +8570,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032118076}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.212, y: -0.222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9688,38 +9688,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149320086}
   m_CullTransparentMesh: 1
---- !u!1 &1156816316
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1156816317}
-  m_Layer: 6
-  m_Name: Cuerpo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1156816317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1156816316}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1932091830}
-  m_Father: {fileID: 1215353461}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1160379909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10127,10 +10095,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215353461}
-  - component: {fileID: 1215353463}
-  - component: {fileID: 1215353462}
-  - component: {fileID: 1215353460}
+  - component: {fileID: 1215353465}
   - component: {fileID: 1215353464}
+  - component: {fileID: 1215353462}
+  - component: {fileID: 1215353466}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -10138,27 +10106,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1215353460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215353459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6cda238f0d055749a36b7338cd659a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armaDistancia: {fileID: 1032118076}
-  armaMelee: {fileID: 384765882}
-  animator: {fileID: 1932091832}
-  gunSprite: {fileID: 1032118077}
-  gunTip: {fileID: 123082596}
-  armaMeleeSprite: {fileID: 384765883}
-  gunRend: {fileID: 763917432}
-  armaMeleeRend: {fileID: 869390515}
-  bulletPrefab: {fileID: 1608711331390680, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
 --- !u!4 &1215353461
 Transform:
   m_ObjectHideFlags: 0
@@ -10171,40 +10118,30 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1156816317}
+  - {fileID: 1932091830}
   - {fileID: 1032118077}
   - {fileID: 384765883}
   - {fileID: 58814390}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1215353462
-BoxCollider2D:
+--- !u!114 &1215353462
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215353459}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.023530751, y: -0.18152285}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6353074, y: 1.1302764}
-  m_EdgeRadius: 0
---- !u!50 &1215353463
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0838193708c706449d03cf5bbc13b67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1031919632}
+  healthText: {fileID: 1149320088}
+  health: 100
+  maxHealth: 100
+--- !u!50 &1215353464
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -10225,7 +10162,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1215353464
+--- !u!61 &1215353465
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215353459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.028970167, y: -0.5563141}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.35328797, y: 0.13411665}
+  m_EdgeRadius: 0
+--- !u!114 &1215353466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10234,13 +10197,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1215353459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0838193708c706449d03cf5bbc13b67, type: 3}
+  m_Script: {fileID: 11500000, guid: e6cda238f0d055749a36b7338cd659a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 1031919632}
-  healthText: {fileID: 1149320088}
-  health: 100
-  maxHealth: 100
+  PlayerFuturista: {fileID: 0}
+  PlayerActual: {fileID: 0}
+  PlayerEdadMedia: {fileID: 0}
+  PlayerPrehistoria: {fileID: 0}
+  animatorFuturista: {fileID: 0}
+  animatorActual: {fileID: 0}
+  animatorMedieval: {fileID: 0}
+  animatorPrehistoria: {fileID: 0}
+  armaDistancia: {fileID: 0}
+  armaMelee: {fileID: 0}
+  gunSprite: {fileID: 0}
+  gunTip: {fileID: 0}
+  armaMeleeSprite: {fileID: 0}
+  gunRend: {fileID: 0}
+  armaMeleeRend: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!4 &1220876070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268015443284032, guid: 4c2f6e0bcfb64634e9ee042ff02ee68f, type: 3}
@@ -16055,7 +16030,7 @@ GameObject:
   - component: {fileID: 1932091831}
   - component: {fileID: 1932091832}
   m_Layer: 6
-  m_Name: CuerpoSprite
+  m_Name: EdadMediaSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16073,7 +16048,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1156816317}
+  m_Father: {fileID: 1215353461}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1932091831
