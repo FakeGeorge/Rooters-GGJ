@@ -5,15 +5,21 @@ using UnityEngine;
 public class Tree_Enemy : MonoBehaviour
 {
     public float attackDamage;
-    TreeOfLife TreeOfLife_Script;
+    public float maxHealth;
+    public float health;
 
     public Transform enemigo;
 
-    public float timer;
+    float timer;
+
+    Animator Anim;
 
     private void Start()
     {
-        //TreeOfLife_Script = FindObjectOfType<TreeOfLife>();
+        health = maxHealth;
+
+        Anim = enemigo.GetComponent<Animator>();
+        Anim.SetBool("IsAttacking", false);
     }
 
     private void Update()
@@ -28,9 +34,34 @@ public class Tree_Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Tree") && timer > 2f)
         {
             timer = 0;
+            Anim.SetBool("IsAttacking", true);
             collision.gameObject.GetComponent<TreeOfLife>().GetDamage(attackDamage);
             Debug.Log("Estoy entrando Tree");
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Anim.SetBool("IsAttacking", false);
+    }
+
+    public void TakeDamage(float damageValue)
+    {
+        if (health > 0)
+        {
+            health -= damageValue;
+        }
+        else if (health <= 0)
+        {
+            //Activar boliches
+            DestroyEnemy();
+        }
+    }
+
+    public void DestroyEnemy()
+    {
+        Destroy(enemigo.gameObject);
+        Destroy(gameObject);
     }
 
 }

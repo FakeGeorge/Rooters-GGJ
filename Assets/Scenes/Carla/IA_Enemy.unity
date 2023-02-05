@@ -155,8 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 2
+  maxHealth: 20
+  health: 0
   enemigo: {fileID: 1059252353}
-  timer: 0
 --- !u!58 &385783485
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -456,8 +457,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8081618, g: 0.8207547, b: 0, a: 1}
+  m_Sprite: {fileID: 1646524209, guid: 504766c15e7f44b4cb0e4203a69ac0bd, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -567,22 +568,26 @@ MonoBehaviour:
   version: 1
   target: {fileID: 2090017327}
   minimumDistance: 1.5
---- !u!58 &1059252357
-CircleCollider2D:
+--- !u!95 &1059252357
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059252350}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eda316831f8a96848b7308109fa75d39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1092916408
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIexgcdUdWgIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE2T2jAM/SuMz2UH6MJCby2wbA8szNLOXnIxjkI8OHbGdvgc/nslJyEpnZ4w7z1JT7KcK5Pa5SC8sQsr46WJgX3rMDqzL52GfIMT3xm9kReoNZ8y9imJeNB8cC8N4n0KcyYDb6X4rneKxD0ECy0TY7N5vIOpcd4hnHDlAClrPEVrhK4ddsKf7oRCzngavNDpgqdJr3PDowDtwTbSWljLSlWhheJZDjFZbsSDQaXulzKNzVQKMi6MUtJVTpg/56HTTZ6CBWo1lhwbC9X7T+MhIinIXeopczt8lSQOfGXK8vNMWhxRmZf9MOXcMu72pbMDVwVVGj0HU2XO5T90tx/oxJrsrS7b71EJn0qx/+BnwZ1vzbUNz1rWw3yOXO35VsFnCvrdLKwpdIyktwWFFg4Gs+bvvbNpCmLf4KXVB7DI/3871MMtNH+aKpltiXp6LoGNMmHg4e7B4tX8RMNhM1yVAlFy8dvBL75rr1BFvErrPFJVl5rsbU1hScrmYWbUTeGnxmoIcGU6B82VP68xjX+8wQeuVfaBeeX0WKriFVe/gYeQADf6Xu+BWpvj/bJcao5LcOmq8EpqaEwT8Y5zmhqtywVrz6QO2xQ24aIVtitk/PdqMTSQbIejScJHXwUMRXc4Hve3sBUiEePRePzCwu5JjX1ytS6NVuPBW9NNco17Vn9DOgvL87DsseXHhbxkpjVyqROzERZAr8oMd+NgsQg+y3geSxzQBryXOtw3u0ZMGbGHOLonikKn85O3PGqyRCyXB+MJidg0fDQiRvB9l9cWDhKOVLxOdmO3P1BLAwQUAAAICAAACCHsN/4WeW0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kqGBQVqSqZllWqKZcXKqabKuqYWFYVJqUnJyWrKFmYWFuVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsYHHVHVoCAAATBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsN/4WeW0AAAB4AAAACQAkAAAAAAAAAAAAAACnAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAF8DAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIewlrr4VXAIAABMFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMmS2jAQ/RVK55CymWGZ3BJgmBwYqCGpufgiy21bhSy5JJm1+Pe0ZBs7pHKief26+/UiXwmXpgRmlV5pnqxVAuTbgDibfBl0zjc40UzJHb9Ay/nkic0diXrOB7VcIR66MKMKsJqz7zITjhwgWEmeKl0skwzmyliDcEqFAXRpZV20ROg6ICf8Gb64kDNao6mzLmi9BIMbmgykBd1RW2JLq1mVZIIWJSROckcejRp2WNMkNtMwnHCmhOCmUULsufSd7socNLhWE06xMV89+Dp9QiQHnuXWZe6Hb9LUgG1EaXpecI0jqvOSH6qeW0HNvlZ2oKJylSbPXlSdc/2Pexh6d6pV8daWDQNXwuac7T/omVFje3Ptw4tOeujnc6RiT2MBnznId7XSqpIJOq2uXGhlYLTo/t47m+fA9h1eS30Aq/L/23E93Hzzp7ngRewn+VwDO6H8wP3uQeNqfqJgfxmmSYGoU/HbwC+a9U+ocbxybSy6mi6lkxerSjsqWfqZuW4qO1dagocb0SVIKux5i2ns4wYffL2yD55X6h5LU7zxtW/gIcTDHT8IHlxbdbwvy+TquAaTbyoruIROtHO845zmSsr6wPozacN2lU4p64VlFU/+Pi2CAtJ4PHlJ6eSJwZgNx7NZGEPMWMpmk9lsSvztcYl9UrGthTbjwa3JLrnEO2u/IYOVpqU/9kTT44pfCtUbOZep2jENIDd1hrtw0FgEn2WyTDgOaAfWcun3Ta4REYrtIYnuiSLf6fJkNY26LBEp+UFZh0Rk7j8aEXHw/Za3Gg4cjq54m+xGbn8AUEsDBBQAAAgIAAAIIew3/hZ5bQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSoYFBWpKpmWVaoplxcqppsq6phYVhUmpScnJasoWZhYW5UixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIewlrr4VXAIAABMFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIew3/hZ5bQAAAHgAAAAJACQAAAAAAAAAAAAAAKkCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAYQMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -913,8 +918,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 5
+  maxHealth: 20
+  health: 0
   enemigo: {fileID: 1833687784}
-  timer: 0
 --- !u!58 &1651579774
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1008,8 +1014,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6603774, g: 0.19001423, b: 0.19001423, a: 1}
+  m_Sprite: {fileID: 1725826951, guid: 8872b6237e3789a4aaa6f5d939978ddc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1119,22 +1125,26 @@ MonoBehaviour:
   version: 1
   target: {fileID: 1592419380}
   minimumDistance: 1.5
---- !u!58 &1833687790
-CircleCollider2D:
+--- !u!95 &1833687790
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833687782}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 94d5a7f06518b2a40acfefabbcd4aa4f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1959014656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1365,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
