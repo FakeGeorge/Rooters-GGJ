@@ -16,6 +16,8 @@ public class TreeOfLife : MonoBehaviour
     Sprite currentSprite;
 
     [SerializeField] ParticleSystem ps_treeHit;
+
+    [SerializeField] GameManager gm;
     private void Start()
     {
         hp = hpMax;
@@ -65,6 +67,8 @@ public class TreeOfLife : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
         yield return new WaitForSecondsRealtime(3);
 
+        gm.KillAllInstancedEnemies();
+
         //FADE OUT, SE DESACTIVA TEXTO
         fadeOut_script.fadeIn = false;
         textoTransicion.gameObject.SetActive(false);
@@ -86,6 +90,6 @@ public class TreeOfLife : MonoBehaviour
         yield return new WaitForSecondsRealtime(3);
         textoTransicion.gameObject.SetActive(true);
         textoTransicion.color = Color.red;
-        textoTransicion.text = "GAME OVER";
+        textoTransicion.text = "FIN DEL JUEGO";
     }
 }

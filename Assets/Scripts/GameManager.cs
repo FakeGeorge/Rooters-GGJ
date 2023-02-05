@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemyTreeCollider;
     public GameObject enemyCollider;
 
+    [SerializeField] List<GameObject> instancedEnemies = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,9 @@ public class GameManager : MonoBehaviour
             GameObject myCollider = Instantiate(enemyCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
             myCollider.SetActive(true);
             myCollider.GetComponent<Base_Enemy>().enemigo = myEnemy.transform;
+
+            instancedEnemies.Add(myEnemy);
+            instancedEnemies.Add(myCollider);
         }
         else if (enemyType == 1)
         {
@@ -73,8 +77,22 @@ public class GameManager : MonoBehaviour
             GameObject myCollider = Instantiate(enemyTreeCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
             myCollider.SetActive(true);
             myCollider.GetComponent<Tree_Enemy>().enemigo = myEnemy.transform;
+
+            instancedEnemies.Add(myEnemy);
+            instancedEnemies.Add(myCollider);
         }
         //yield return new WaitForSeconds(2);
         //yield return StartCoroutine("SpawnEnemigos");
+    }
+    public void KillAllInstancedEnemies()
+    {
+
+        for (int i = 0; i <= instancedEnemies.Count-1; i++)
+        {
+            Destroy(instancedEnemies[i]);
+        }
+
+        instancedEnemies.Clear();
+
     }
 }
