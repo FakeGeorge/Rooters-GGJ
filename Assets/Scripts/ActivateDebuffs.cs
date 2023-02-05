@@ -11,6 +11,11 @@ public class ActivateDebuffs : MonoBehaviour
 
     [SerializeField] GameObject card1, card2, card3, canvas;
 
+
+    private void Start()
+    {
+        RandomDebuffs();
+    }
     public void RandomDebuffs()  //Ejecutar cuando haya que mostrar debuffs
     {
         foreach (Debuffs debuff in myDebuffs)
@@ -34,9 +39,10 @@ public class ActivateDebuffs : MonoBehaviour
 
     void ChangeCardInfo( GameObject card,Debuffs debuff)
     {
-        card.transform.GetChild(0).GetComponent<Image>().sprite = debuff.mySprite;
-        card.transform.GetChild(1).GetComponent<Text>().text = debuff.myName;
-        card.transform.GetChild(2).GetComponent<Text>().text = debuff.myDescription;
+        card.transform.GetChild(2).GetComponent<Image>().sprite = debuff.mySprite;
+        card.transform.GetChild(3).GetComponent<Text>().text = debuff.myName;
+        card.transform.GetChild(4).GetComponent<Text>().text = debuff.myDescription;
+        card.transform.GetChild(5).GetComponent<Text>().text = debuff.ID;
     }
 
     void ShowCards()
@@ -48,14 +54,14 @@ public class ActivateDebuffs : MonoBehaviour
 
     public void ClickThis(Button thisButton)
     {
-        ExecuteDebuff(thisButton.gameObject.transform.GetChild(1).GetComponent<Text>());
+        ExecuteDebuff(thisButton.gameObject.transform.GetChild(5).GetComponent<Text>());
     }
 
-    void ExecuteDebuff(Text nombreDebuff)
+    void ExecuteDebuff(Text IDDebuff)
     {
-        Debug.Log(nombreDebuff.text);
+        Debug.Log(IDDebuff.text);
 
-        if (nombreDebuff.text == "loquesea")
+        if (IDDebuff.text == "loquesea")
         {
             //hacer efecto del debuff
         }

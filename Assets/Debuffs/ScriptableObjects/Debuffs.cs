@@ -6,7 +6,7 @@ using UnityEngine;
 public class Debuffs : ScriptableObject
 {
 
-    public string myName, myDescription;
+    public string myName, myDescription,ID;
     public Sprite mySprite;
 
 }
