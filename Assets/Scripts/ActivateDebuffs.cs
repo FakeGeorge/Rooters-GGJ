@@ -13,9 +13,13 @@ public class ActivateDebuffs : MonoBehaviour
 
     [SerializeField] Settings settings;
     [SerializeField] AudioClip Click;
+    [SerializeField] PlayerController pc;
+    [SerializeField] PlayerHealth ph;
     private void Start()
     {
         settings = GameObject.Find("Settings").GetComponent<Settings>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        ph = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         //RandomDebuffs();
     }
 
@@ -71,30 +75,41 @@ public class ActivateDebuffs : MonoBehaviour
 
         if (IDDebuff.text == "-Speed")
         {
+            pc.speed -= 2;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "SlowBullets")
         {
+            Bullet.speed -= 4;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "Buff")
         {
+            PlayerController.dmgAdded = +2;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "-Atk")
         {
+            PlayerController.dmgAdded = -2;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "+CD")
         {
+            pc.timeBetweenShots += 0.5f;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "-hp")
         {
+            ph.health -= 2;
             //hacer efecto del debuff
         }
         if (IDDebuff.text == "AllDebuffs")
         {
+            ph.health -= 2;
+            PlayerController.dmgAdded = -2;
+            pc.speed -= 2;
+            Bullet.speed -= 4;
+            pc.timeBetweenShots += 0.5f;
             //hacer efecto del debuff
         }
 

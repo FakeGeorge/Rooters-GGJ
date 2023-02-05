@@ -22,6 +22,8 @@ public class TreeOfLife : MonoBehaviour
     [SerializeField] ParticleSystem ps_treeHit;
 
     [SerializeField] GameManager gm;
+
+    [SerializeField] ActivateDebuffs debuffs;
     private void Start()
     {
         hp = hpMax;
@@ -29,6 +31,7 @@ public class TreeOfLife : MonoBehaviour
         textoTransicion.gameObject.SetActive(false);
 
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        debuffs = GameObject.Find("MenuDebuff").GetComponent<ActivateDebuffs>();
     }
 
     private void Update()
@@ -109,6 +112,8 @@ public class TreeOfLife : MonoBehaviour
 
         gm.KillAllInstancedEnemies();
 
+        Debuffs();
+
         //FADE OUT, SE DESACTIVA TEXTO
         fadeOut_script.fadeIn = false;
         textoTransicion.gameObject.SetActive(false);
@@ -120,7 +125,12 @@ public class TreeOfLife : MonoBehaviour
         fadeOut_script.myUI.alpha = 0f;
         fadeOut_script.alpha = 1f;
         FadeIn.alpha = 0f;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+    }
+
+    void Debuffs()
+    {
+        debuffs.RandomDebuffs();
     }
 
     IEnumerator Dead()

@@ -8,45 +8,48 @@ public class PlayerController : MonoBehaviour
     //public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
     //public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
 
+    public static float dmgAdded;
+
     [Header("Futurista")]
     public bool Futurista = true;
     public Sprite futuristaSprite;
     public RuntimeAnimatorController futuristaAnimator;
     public Sprite pistolaLaserSprite;
 
-    public float damageFuturo = 50 / 2f;
+    public float damageFuturo = 50 / 2f + dmgAdded;
     [Header("Actual")]
     public bool Actual = false;
     public Sprite actualSprite;
     public RuntimeAnimatorController actualAnimator;
     public Sprite pistolaSprite;
 
-    public float damageActual = 50 / 3f;
+    public float damageActual = 50 / 3f + dmgAdded;
     [Header("Medieval")]
     public bool Medieval = false;
     public Sprite medievalSprite;
     public RuntimeAnimatorController medievalAnimator;
     public Sprite arcoSprite;
 
-    public float damageMedieval = 50 / 4f;
+    public float damageMedieval = 50 / 4f + dmgAdded;
     [Header("Prehistoria")]
     public bool Prehistoria = false;
     public Sprite prehistoriaSprite;
     public RuntimeAnimatorController prehistoriaAnimator;
     public Sprite lanzaSprite;
 
-    public float damagePrehistoria = 50 / 5f;
+    public float damagePrehistoria = 50 / 5f + dmgAdded;
 
     [Header("Player")]
     public SpriteRenderer playerSprite;
     public Animator playerAnimator;
     public SpriteRenderer armaDistanciaSprite, armaMeleeRend;
 
-    float speed = 5;
+    public float speed = 5;
     Vector2 movimiento;
 
     bool mouseLeft, mouseRigth, canShoot;
-    float lastShot = 0, timeBetweenShots = 0.25f;
+    public float timeBetweenShots = 0.25f;
+    float lastShot = 0;
     Vector3 mousePos, mouseVector;
     public Transform gunSprite, gunTip, armaMeleeSprite;
     int playerSortingOrder = 20;

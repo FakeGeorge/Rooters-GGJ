@@ -8,7 +8,8 @@ public class Bullet : MonoBehaviour
 	private TreeOfLife _treeOfLife;
 
 	Vector3 dir, nextDir;
-	float speed, speedDecay = 2f, minSpeed = 0.1f, startSpeed = 20;
+	public static float speed;
+	float speedDecay = 2f, minSpeed = 0.1f, startSpeed = 20;
 	bool recalling, disappearing;
 	Transform recallTarget;
 	public SpriteRenderer bulletRend;
