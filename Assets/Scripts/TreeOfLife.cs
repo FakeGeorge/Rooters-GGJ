@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TreeOfLife : MonoBehaviour
 {
@@ -141,6 +142,7 @@ public class TreeOfLife : MonoBehaviour
         textoTransicion.gameObject.SetActive(true);
         textoTransicion.color = Color.red;
         textoTransicion.text = "FIN DEL JUEGO";
+        SceneManager.LoadScene("MainMenu");
     }
 
     void HealthBarFiller()

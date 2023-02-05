@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
         settings = GameObject.Find("Settings").GetComponent<Settings>();
 
+        //healthBar.fillAmount.
     }
 
     private void Update()
@@ -26,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
         HealthBarFiller();
         ColorChanger();
 
-        healthText.text = health + "%";
+        healthText.text = health.ToString("F0") + "%";
 
         if (health > maxHealth) health = maxHealth;
 
