@@ -8,19 +8,39 @@ public class PlayerController : MonoBehaviour
 	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
 	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
 
-	public Animator animatorMedieval;
-	public Animator arco;
+	[Header("Futurista")]
+	public bool Futurista;
+	public Sprite futuristaSprite;
+	public RuntimeAnimatorController futuristaAnimator;
+	public Sprite pistolaLaserSprite;
+	[Header("Actual")]
+	public bool Actual;
+	public Sprite actualSprite;
+	public RuntimeAnimatorController actualAnimator;
+	public Sprite pistolaSprite;
+	[Header("Medieval")]
+	public bool Medieval;
+	public Sprite medievalSprite;
+	public RuntimeAnimatorController medievalAnimator;
+	public Sprite arcoSprite;
+	[Header("Prehistoria")]
+	public bool Prehistoria;
+	public Sprite prehistoriaSprite;
+	public RuntimeAnimatorController prehistoriaAnimator;
+	public Sprite lanzaSprite;
+
+	[Header("Player")]
+	public SpriteRenderer playerSprite;
+	public Animator playerAnimator;
+	public SpriteRenderer armaDistanciaSprite, armaMeleeRend;
 
 	float speed = 5;
 	Vector2 movimiento;
-
-	public GameObject armaDistancia, armaMelee;
 
 	bool mouseLeft, mouseRigth, canShoot;
 	float lastShot = 0, timeBetweenShots = 0.25f;
 	Vector3 mousePos, mouseVector;
 	public Transform gunSprite, gunTip, armaMeleeSprite;
-	public SpriteRenderer gunRend, armaMeleeRend;
 	int playerSortingOrder = 20;
 	public GameObject bulletPrefab;
 	CameraController Cam;
@@ -33,9 +53,6 @@ public class PlayerController : MonoBehaviour
 		Cam = FindObjectOfType<CameraController>();
 
 		rb = GetComponent<Rigidbody2D>();
-
-		armaDistancia.SetActive(false);
-		armaMelee.SetActive(false);
 	}
 
     private void FixedUpdate()
@@ -48,40 +65,67 @@ public class PlayerController : MonoBehaviour
 	}
     private void Update()
     {
+        if (Futurista == true)
+        {
+			playerSprite.sprite = futuristaSprite;
+			playerAnimator.runtimeAnimatorController = futuristaAnimator;
+			armaDistanciaSprite.sprite = pistolaLaserSprite;
+        }
+        if (Actual == true)
+        {
+			playerSprite.sprite = actualSprite;
+			playerAnimator.runtimeAnimatorController = actualAnimator;
+			armaDistanciaSprite.sprite = pistolaSprite;
+		}
+		if (Medieval == true)
+		{
+			playerSprite.sprite = medievalSprite;
+			playerAnimator.runtimeAnimatorController = medievalAnimator;
+			armaDistanciaSprite.sprite = arcoSprite;
+			armaDistanciaSprite.flipX = true;
+		}
+		if (Prehistoria == true)
+		{
+			playerSprite.sprite = prehistoriaSprite;
+			playerAnimator.runtimeAnimatorController = prehistoriaAnimator;
+			armaDistanciaSprite.sprite = lanzaSprite;
+			armaDistanciaSprite.flipX = true;
+		}
+
 		if (Input.GetKeyDown(KeyCode.A))
 		{
-			animatorMedieval.SetBool("moveIzq", true);
+			playerAnimator.SetBool("moveIzq", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.A))
 		{
-			animatorMedieval.SetBool("moveIzq", false);
+			playerAnimator.SetBool("moveIzq", false);
 		}
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-			animatorMedieval.SetBool("moveDer", true);
+			playerAnimator.SetBool("moveDer", true);
 		}
         else if (Input.GetKeyUp(KeyCode.D))
         {
-			animatorMedieval.SetBool("moveDer", false);
+			playerAnimator.SetBool("moveDer", false);
 		}
 
 		if (Input.GetKeyDown(KeyCode.W))
 		{
-			animatorMedieval.SetBool("moveDer", true);
+			playerAnimator.SetBool("moveUp", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.W))
 		{
-			animatorMedieval.SetBool("moveDer", false);
+			playerAnimator.SetBool("moveUp", false);
 		}
 
 		if (Input.GetKeyDown(KeyCode.S))
 		{
-			animatorMedieval.SetBool("moveIzq", true);
+			playerAnimator.SetBool("moveDown", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.S))
 		{
-			animatorMedieval.SetBool("moveIzq", false);
+			playerAnimator.SetBool("moveDown", false);
 		}
 	}
 
@@ -112,14 +156,14 @@ public class PlayerController : MonoBehaviour
 	{
 		float gunAngle = -1 * Mathf.Atan2(mouseVector.y, mouseVector.x) * Mathf.Rad2Deg; //find angle in degrees from player to cursor
 		gunSprite.rotation = Quaternion.AngleAxis(gunAngle, Vector3.back); //rotate gun sprite around that angle
-		gunRend.sortingOrder = playerSortingOrder - 1; //put the gun sprite bellow the player sprite
+		armaDistanciaSprite.sortingOrder = playerSortingOrder - 1; //put the gun sprite bellow the player sprite
 
 		armaMeleeSprite.rotation = Quaternion.AngleAxis(gunAngle, Vector3.back);
 		armaMeleeRend.sortingOrder = playerSortingOrder - 1;
 
 		if (gunAngle > 0)
 		{ //put the gun on top of player if it's at the correct angle
-			gunRend.sortingOrder = playerSortingOrder + 1;
+			armaDistanciaSprite.sortingOrder = playerSortingOrder + 1;
 			armaMeleeRend.sortingOrder = playerSortingOrder + 1;
 		} 
 	}
@@ -129,26 +173,17 @@ public class PlayerController : MonoBehaviour
 		canShoot = (lastShot + timeBetweenShots < Time.time);
 		if (mouseLeft && canShoot)
 		{ //shoot if the mouse button is held and its been enough time since last shot
-			
-			armaDistancia.SetActive(true);
-			armaMelee.SetActive(false);
 
 			Vector3 spawnPos = gunTip.position; //position of the tip of the gun, a transform that is a child of rotating gun
 			Quaternion spawnRot = Quaternion.identity; //no rotation, bullets here are round
 			Bullet bul = Instantiate(bulletPrefab, spawnPos, spawnRot).GetComponent<Bullet>();//spawn bullet and capture it's script
+
+			//SONIDO DISPARO
+			//SWITCH CASE SONIDO EN FUNCION DEL ARMA
+
 			bul.Setup(mouseVector); //give the bullet a direction to fly
 			lastShot = Time.time; //used to check next time this is called
 			Cam.Shake((transform.position - gunTip.position).normalized, 1.5f, 0.05f); //call camera shake for recoil
-
-			arco.SetTrigger("attack");
 		}
-	}
-	void Melee()
-    {
-        if (mouseRigth)
-        {
-			armaDistancia.SetActive(false);
-			armaMelee.SetActive(true);
-		}
-	}
+	} 
 }
