@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TreeOfLife : MonoBehaviour
 {
+    PlayerController player;
 
     public FadeOut fadeOut_script;
 
@@ -71,6 +72,28 @@ public class TreeOfLife : MonoBehaviour
         textoTransicion.text = "" + GameManager.miEpoca.ToString();
         gameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
         yield return new WaitForSecondsRealtime(3);
+
+        if (GameManager.miEpoca == GameManager.Epocas.futuro)
+        {
+            player.Futurista = false;
+            player.Actual = true;
+            player.Medieval = false;
+            player.Prehistoria = false;
+        }
+        if (GameManager.miEpoca == GameManager.Epocas.actual)
+        {
+            player.Futurista = false;
+            player.Actual = false;
+            player.Medieval = true;
+            player.Prehistoria = false;
+        }
+        if (GameManager.miEpoca == GameManager.Epocas.medievo)
+        {
+            player.Futurista = false;
+            player.Actual = false;
+            player.Medieval = false;
+            player.Prehistoria = true;
+        }
 
         gm.KillAllInstancedEnemies();
 
