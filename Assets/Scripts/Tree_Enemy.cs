@@ -102,6 +102,5 @@ public class Tree_Enemy : MonoBehaviour
     {
         Anim.SetBool("IsAttacking", true);
         tree.GetComponent<TreeOfLife>().GetDamage(attackDamage);
-        Debug.Log("timer despues " + timer);
     }
 }

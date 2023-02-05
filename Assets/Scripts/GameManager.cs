@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        miEpoca = Epocas.prehistoria;
+        miEpoca = Epocas.futuro;
         //StartCoroutine("SpawnEnemigos");
         InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
     }
