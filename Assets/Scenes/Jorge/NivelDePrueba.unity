@@ -1639,7 +1639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123082595}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.3086957, y: 0, z: 0}
+  m_LocalPosition: {x: 0.08, y: 0.02, z: 0}
   m_LocalScale: {x: 2.173913, y: 4.347826, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3498,7 +3498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &384765883
 Transform:
   m_ObjectHideFlags: 0
@@ -5940,6 +5940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763917431}
   - component: {fileID: 763917432}
+  - component: {fileID: 763917433}
   m_Layer: 6
   m_Name: ArmaDistanciaSprite
   m_TagString: Untagged
@@ -5955,8 +5956,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763917430}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.334, y: 0, z: 0}
-  m_LocalScale: {x: 0.46, y: 0.23, z: 1}
+  m_LocalPosition: {x: 0.89, y: 0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 123082596}
@@ -6004,9 +6005,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 21
-  m_Sprite: {fileID: 21300000, guid: df11c361b3e63624c8a38d02e1d604a7, type: 3}
-  m_Color: {r: 0.17254902, g: 0.3764706, b: 0.28627452, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: -1830388774, guid: c10b7792d69e35f4ba286a357069f9db, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5.12, y: 5.12}
@@ -6015,6 +6016,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &763917433
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763917430}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39c2a636f2fc1254b9877871c147d8d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &772589749 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4268015443284032, guid: 4c2f6e0bcfb64634e9ee042ff02ee68f, type: 3}
@@ -10201,6 +10222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorMedieval: {fileID: 1932091832}
+  arco: {fileID: 763917433}
   armaDistancia: {fileID: 1032118076}
   armaMelee: {fileID: 384765882}
   gunSprite: {fileID: 1032118077}
@@ -12156,6 +12178,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2f6e0bcfb64634e9ee042ff02ee68f, type: 3}
+--- !u!1001 &1445878048
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1073371470114512, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_Name
+      value: bulletSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 1608711331390680, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_Name
+      value: Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940904842918568, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275002810269138, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: Armas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114275002810269138, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: Armas.Array.data[0]
+      value: 
+      objectReference: {fileID: -1720346422, guid: c10b7792d69e35f4ba286a357069f9db, type: 3}
+    - target: {fileID: 114275002810269138, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: Armas.Array.data[1]
+      value: 
+      objectReference: {fileID: -1720346422, guid: c10b7792d69e35f4ba286a357069f9db, type: 3}
+    - target: {fileID: 114275002810269138, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: Armas.Array.data[2]
+      value: 
+      objectReference: {fileID: -1720346422, guid: c10b7792d69e35f4ba286a357069f9db, type: 3}
+    - target: {fileID: 212323572867043450, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 386b8a2447054ab4b85fba0750b84438, type: 3}
 --- !u!1001 &1449842917
 PrefabInstance:
   m_ObjectHideFlags: 0

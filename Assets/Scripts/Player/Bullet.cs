@@ -8,7 +8,15 @@ public class Bullet : MonoBehaviour {
 	bool recalling, disappearing;
 	Transform recallTarget;
 	public SpriteRenderer bulletRend;
-	public void Setup (Vector3 _dir) { 
+
+	public List<Sprite> Armas;
+
+    private void Awake()
+    {
+        
+    }
+
+    public void Setup (Vector3 _dir) { 
 		dir = _dir; //passed in from player
 		speed = startSpeed; //start moving
 	}

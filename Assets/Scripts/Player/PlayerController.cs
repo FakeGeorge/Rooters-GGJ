@@ -6,8 +6,10 @@ public class PlayerController : MonoBehaviour
 {
 	//public SpriteRenderer PlayerFuturista, PlayerActual, PlayerEdadMedia, PlayerPrehistoria;
 	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
+	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
 
 	public Animator animatorMedieval;
+	public Animator arco;
 
 	float speed = 5;
 	Vector2 movimiento;
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
 		Movement(); //move the player
 		Animation(); //rotate the gun
 		Shooting(); //handle shooting
-		Melee();
+		//Melee();
 	}
     private void Update()
     {
@@ -137,6 +139,8 @@ public class PlayerController : MonoBehaviour
 			bul.Setup(mouseVector); //give the bullet a direction to fly
 			lastShot = Time.time; //used to check next time this is called
 			Cam.Shake((transform.position - gunTip.position).normalized, 1.5f, 0.05f); //call camera shake for recoil
+
+			arco.SetTrigger("attack");
 		}
 	}
 	void Melee()
