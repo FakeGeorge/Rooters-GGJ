@@ -10513,9 +10513,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 112265845}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1095226681}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: fd6592bdcc99158409ebba0511562453, type: 3}
@@ -10783,9 +10783,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 112265845}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1095226681}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: fd6592bdcc99158409ebba0511562453, type: 3}
@@ -11188,6 +11188,7 @@ MonoBehaviour:
   settings: {fileID: 112265845}
   BGMIngame: {fileID: 8300000, guid: ea5fd580e0b42cd45904c41b31405542, type: 3}
   BGMMenu: {fileID: 8300000, guid: e2b4985a22ba03041a4cefd0b9680b1d, type: 3}
+  Click: {fileID: 8300000, guid: fd6592bdcc99158409ebba0511562453, type: 3}
   timeforStart: 0
   creditos: {fileID: 191883155}
   start: {fileID: 2088280531}
@@ -21595,9 +21596,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 112265845}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1095226681}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: fd6592bdcc99158409ebba0511562453, type: 3}
@@ -22154,9 +22155,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 112265845}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: PlaySFX
+      - m_Target: {fileID: 1095226681}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: fd6592bdcc99158409ebba0511562453, type: 3}
@@ -22231,10 +22232,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2010257304135847822, guid: e2e94a5c1d9247049969f49df9f4e4c4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
     - target: {fileID: 2010257304809895798, guid: e2e94a5c1d9247049969f49df9f4e4c4, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -22287,14 +22284,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 806016965}
-    - target: {fileID: 2010257305376711763, guid: e2e94a5c1d9247049969f49df9f4e4c4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
-    - target: {fileID: 2010257305890702016, guid: e2e94a5c1d9247049969f49df9f4e4c4, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2e94a5c1d9247049969f49df9f4e4c4, type: 3}
 --- !u!1001 &3417858468602231159
@@ -22361,14 +22350,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5930407219857491303, guid: 527317db68e6fd040a752424998d023e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
-    - target: {fileID: 5930407220062524457, guid: 527317db68e6fd040a752424998d023e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
     - target: {fileID: 5930407220158010543, guid: 527317db68e6fd040a752424998d023e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -22421,10 +22402,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 806016965}
-    - target: {fileID: 5930407221374446499, guid: 527317db68e6fd040a752424998d023e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 112265845}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 527317db68e6fd040a752424998d023e, type: 3}
 --- !u!1001 &8545013222991182828

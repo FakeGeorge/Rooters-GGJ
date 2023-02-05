@@ -88,6 +88,7 @@ public class Base_Enemy : MonoBehaviour
         bloodInstantiated = Instantiate(blood, transform.position, Quaternion.identity);
         enemigo.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        //SONIDO DE MUERTE
         Invoke("DestroyBlood", 1f);
     }
 

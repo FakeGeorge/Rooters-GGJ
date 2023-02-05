@@ -177,6 +177,10 @@ public class PlayerController : MonoBehaviour
 			Vector3 spawnPos = gunTip.position; //position of the tip of the gun, a transform that is a child of rotating gun
 			Quaternion spawnRot = Quaternion.identity; //no rotation, bullets here are round
 			Bullet bul = Instantiate(bulletPrefab, spawnPos, spawnRot).GetComponent<Bullet>();//spawn bullet and capture it's script
+
+			//SONIDO DISPARO
+			//SWITCH CASE SONIDO EN FUNCION DEL ARMA
+
 			bul.Setup(mouseVector); //give the bullet a direction to fly
 			lastShot = Time.time; //used to check next time this is called
 			Cam.Shake((transform.position - gunTip.position).normalized, 1.5f, 0.05f); //call camera shake for recoil
