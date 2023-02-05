@@ -5951,6 +5951,7 @@ RectTransform:
   m_Children:
   - {fileID: 1994646733}
   - {fileID: 1781051517}
+  - {fileID: 1110353851}
   m_Father: {fileID: 1135160083}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13898,7 +13899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1095226680
 Transform:
   m_ObjectHideFlags: 0
@@ -13931,6 +13932,10 @@ MonoBehaviour:
   BGMIngame: {fileID: 8300000, guid: ea5fd580e0b42cd45904c41b31405542, type: 3}
   timeforStart: 0
   creditos: {fileID: 191883155}
+  start: {fileID: 2088280531}
+  options: {fileID: 1642532018}
+  credits: {fileID: 341794389}
+  exit: {fileID: 553774515}
 --- !u!1 &1108701494
 GameObject:
   m_ObjectHideFlags: 0
@@ -14064,17 +14069,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110353850}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1135160083}
-  m_RootOrder: 7
+  m_Father: {fileID: 191883158}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 764, y: -423}
+  m_AnchoredPosition: {x: 764.0001, y: -423}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1110353852
@@ -14221,7 +14226,6 @@ RectTransform:
   - {fileID: 341794388}
   - {fileID: 553774513}
   - {fileID: 191883158}
-  - {fileID: 1110353851}
   m_Father: {fileID: 1095226680}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25771,9 +25775,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 112265845}
-        m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: OpenMenu
+      - m_Target: {fileID: 1095226681}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: Settings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bdf00fa9288651942b8f21e329bd0f0b
+guid: 673bb2d8ec79ff14aa67d52290d31d95
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Atack_Fred_0
+      name: Atack_Rose (1)_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 7
-        width: 40
-        height: 33
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 987a5d094b610c542a61e3228e1a079c
-      internalID: -369016501
+      spriteID: 0de6bbdd3cbe7384aaf866a09d851ee9
+      internalID: -216384480
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atack_Fred_1
+      name: Atack_Rose (1)_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 7
-        width: 33
-        height: 33
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91d250d18f84936428f0a79acfebdd14
-      internalID: 1094465827
+      spriteID: 981ce766936f8d7438d73201ebe1e86d
+      internalID: -1598156051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atack_Fred_2
+      name: Atack_Rose (1)_2
       rect:
         serializedVersion: 2
-        x: 88
-        y: 7
-        width: 40
-        height: 33
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b27dd00279c0594439c037bb7f26b36d
-      internalID: 1205523896
+      spriteID: a741497e77beb8f4baad4b68f0e63377
+      internalID: -1261200211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Atack_Fred_3
+      name: Atack_Rose (1)_3
       rect:
         serializedVersion: 2
-        x: 131
-        y: 7
-        width: 44
-        height: 33
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,8 +182,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7927b43bc0e5b145af04adc2563b9c8
-      internalID: -969387105
+      spriteID: aee8aabd9fca77f4a880c792d6459021
+      internalID: 1904556220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Atack_Rose (1)_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93e159683f9ce684cbdfb62d54dd4b14
+      internalID: 2113411071
       vertices: []
       indices: 
       edges: []
@@ -199,10 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Atack_Fred_1: 1094465827
-      Atack_Fred_2: 1205523896
-      Atack_Fred_0: -369016501
-      Atack_Fred_3: -969387105
+      Atack_Rose (1)_2: -1261200211
+      Atack_Rose (1)_0: -216384480
+      Atack_Rose (1)_3: 1904556220
+      Atack_Rose (1)_1: -1598156051
+      Atack_Rose (1)_4: 2113411071
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

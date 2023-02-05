@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -9,30 +10,43 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioClip BGMIngame;
     [SerializeField] float timeforStart; //por si animación
     [SerializeField] GameObject creditos;
+
+    [SerializeField] Button start, options, credits, exit;
     public void StartGame()
     {
-        StartCoroutine("StartAnim");
+        StopButtons();
         Invoke("ChangeSceneToGame", 2f);
     }
 
-    IEnumerator StartAnim()
+    void StopButtons()
     {
-        yield return new WaitForSeconds(timeforStart);
-        settings.changeBGM(BGMIngame);
-
+        start.interactable = false;
+        options.interactable = false;
+        credits.interactable = false;
+        exit.interactable = false;
     }
-
     void ChangeSceneToGame()
     {
+        settings.changeBGM(BGMIngame);
         SceneManager.LoadScene("Juego"); //Juego = nombre de la escena del juego
     }
 
-    public void Exit()
+    public void Settings()
     {
-        Application.Quit();
+        Invoke("SettingsNow", 1);
     }
 
+    void SettingsNow()
+    {
+        settings.transform.GetChild(0).gameObject.SetActive(true);
+    }
+  
     public void Creditos()
+    {
+        Invoke("CreditosNow", 1);
+    }
+
+    void CreditosNow()
     {
         creditos.SetActive(true);
     }
@@ -41,5 +55,13 @@ public class MainMenu : MonoBehaviour
     {
         creditos.SetActive(false);
     }
+    public void Exit()
+    {
+        Invoke("ExitNow", 1);
+    }
 
+    void ExitNow()
+    {
+        Application.Quit();
+    }
 }
