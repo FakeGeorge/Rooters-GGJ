@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TreeOfLife : MonoBehaviour
 {
-    PlayerController player;
+    private PlayerController _player;
 
     public FadeOut fadeOut_script;
 
@@ -24,6 +24,8 @@ public class TreeOfLife : MonoBehaviour
         hp = hpMax;
         gameObject.GetComponent<SpriteRenderer>().sprite = mySprites[0];
         textoTransicion.gameObject.SetActive(false);
+
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     public void GetDamage(float damage)
@@ -73,26 +75,26 @@ public class TreeOfLife : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
         yield return new WaitForSecondsRealtime(3);
 
-        if (GameManager.miEpoca == GameManager.Epocas.futuro)
-        {
-            player.Futurista = false;
-            player.Actual = true;
-            player.Medieval = false;
-            player.Prehistoria = false;
-        }
         if (GameManager.miEpoca == GameManager.Epocas.actual)
         {
-            player.Futurista = false;
-            player.Actual = false;
-            player.Medieval = true;
-            player.Prehistoria = false;
+            _player.Futurista = false;
+            _player.Actual = true;
+            _player.Medieval = false;
+            _player.Prehistoria = false;
         }
         if (GameManager.miEpoca == GameManager.Epocas.medievo)
         {
-            player.Futurista = false;
-            player.Actual = false;
-            player.Medieval = false;
-            player.Prehistoria = true;
+            _player.Futurista = false;
+            _player.Actual = false;
+            _player.Medieval = true;
+            _player.Prehistoria = false;
+        }
+        if (GameManager.miEpoca == GameManager.Epocas.prehistoria)
+        {
+            _player.Futurista = false;
+            _player.Actual = false;
+            _player.Medieval = false;
+            _player.Prehistoria = true;
         }
 
         gm.KillAllInstancedEnemies();

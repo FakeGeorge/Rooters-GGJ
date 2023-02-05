@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour 
+{
+	private PlayerController _player;
+	private TreeOfLife _treeOfLife;
+
 	Vector3 dir, nextDir;
 	float speed, speedDecay = 2f, minSpeed = 0.1f, startSpeed = 20;
 	bool recalling, disappearing;
 	Transform recallTarget;
 	public SpriteRenderer bulletRend;
 
-	public List<Sprite> Armas;
-
     private void Awake()
     {
-        
-    }
+		_player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+		_treeOfLife = GameObject.FindGameObjectWithTag("Tree").GetComponent<TreeOfLife>();
+	}
 
     public void Setup (Vector3 _dir) { 
 		dir = _dir; //passed in from player
@@ -33,13 +36,52 @@ public class Bullet : MonoBehaviour {
 		tempPos += dir * speed * Time.fixedDeltaTime; //find new position
 		transform.position = tempPos; //update position
 	}
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.CompareTag("Wall")){
-			speed = 0; //stop if it hits a wall
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+		if (collision.gameObject.tag == "Enemy")
+		{
+			if (GameManager.miEpoca == GameManager.Epocas.futuro)
+			{
+				collision.gameObject.GetComponent<Base_Enemy>().TakeDamage(_player.damageFuturo);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.actual)
+			{
+				collision.gameObject.GetComponent<Base_Enemy>().TakeDamage(_player.damageActual);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.medievo)
+			{
+				collision.gameObject.GetComponent<Base_Enemy>().TakeDamage(_player.damageMedieval);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.prehistoria)
+			{
+				collision.gameObject.GetComponent<Base_Enemy>().TakeDamage(_player.damagePrehistoria);
+			}
+			Destroy(gameObject);
 		}
+        if (collision.gameObject.tag == "TreeEnemy")
+        {
+			if (GameManager.miEpoca == GameManager.Epocas.futuro)
+			{
+				collision.gameObject.GetComponent<Tree_Enemy>().TakeDamage(_player.damageFuturo);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.actual)
+			{
+				collision.gameObject.GetComponent<Tree_Enemy>().TakeDamage(_player.damageActual);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.medievo)
+			{
+				collision.gameObject.GetComponent<Tree_Enemy>().TakeDamage(_player.damageMedieval);
+			}
+			if (GameManager.miEpoca == GameManager.Epocas.prehistoria)
+			{
+				collision.gameObject.GetComponent<Tree_Enemy>().TakeDamage(_player.damagePrehistoria);
+			}
+			Destroy(gameObject);
+		}
+		
 	}
-	void CheckDisappear(){
+    void CheckDisappear(){
 		if (speed == 0 && !disappearing){ //disappear and destroy when stopped
 			disappearing = true; //so we dont continuelly call the coroutine
 			StartCoroutine(Disappear());

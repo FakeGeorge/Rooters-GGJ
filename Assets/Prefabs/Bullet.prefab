@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &114275002810269138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,4 +169,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletRend: {fileID: 212323572867043450}
-  Armas: []

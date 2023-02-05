@@ -9,25 +9,33 @@ public class PlayerController : MonoBehaviour
 	//public Animator animatorFuturista, animatorActual, animatorMedieval, animatorPrehistoria;
 
 	[Header("Futurista")]
-	public bool Futurista;
+	public bool Futurista = true;
 	public Sprite futuristaSprite;
 	public RuntimeAnimatorController futuristaAnimator;
 	public Sprite pistolaLaserSprite;
+
+	public float damageFuturo = 50 / 2f;
 	[Header("Actual")]
-	public bool Actual;
+	public bool Actual = false;
 	public Sprite actualSprite;
 	public RuntimeAnimatorController actualAnimator;
 	public Sprite pistolaSprite;
+
+	public float damageActual = 50 / 3f;
 	[Header("Medieval")]
-	public bool Medieval;
+	public bool Medieval = false;
 	public Sprite medievalSprite;
 	public RuntimeAnimatorController medievalAnimator;
 	public Sprite arcoSprite;
+
+	public float damageMedieval = 50 / 4f;
 	[Header("Prehistoria")]
-	public bool Prehistoria;
+	public bool Prehistoria = false;
 	public Sprite prehistoriaSprite;
 	public RuntimeAnimatorController prehistoriaAnimator;
 	public Sprite lanzaSprite;
+
+	public float damagePrehistoria = 50 / 5f;
 
 	[Header("Player")]
 	public SpriteRenderer playerSprite;

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     {
         miEpoca = Epocas.futuro;
         //StartCoroutine("SpawnEnemigos");
-        InvokeRepeating(nameof(SpawnEnemigos), 2, 2);
+        InvokeRepeating(nameof(SpawnEnemigos), 2, 0.5f);
     }
 
     void SpawnEnemigos ()
