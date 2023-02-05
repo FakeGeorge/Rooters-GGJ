@@ -34,28 +34,28 @@ public class GameManager : MonoBehaviour
     {
         enemyType = Random.Range(0, 2);
 
-        xRandomSpawn = Random.Range(-20, 21);
-        yRandomSpawn = Random.Range(-20, 21);
+        xRandomSpawn = Random.Range(-24, 31);
+        yRandomSpawn = Random.Range(-19, 25);
 
         
         if (xRandomSpawn > -xminimumDistance && xRandomSpawn < 0)
         {
-            xRandomSpawn = -Random.Range(20, 6);
+            xRandomSpawn = -Random.Range(24, 11);
         }
 
         if (xRandomSpawn >= 0 && xRandomSpawn < xminimumDistance)
         {
-            xRandomSpawn = Random.Range(5, 21);
+            xRandomSpawn = Random.Range(10, 32);
         }
 
         if (yRandomSpawn >= 0 && yRandomSpawn < yminimumDistance)
         {
-            yRandomSpawn = Random.Range(5, 21);
+            yRandomSpawn = Random.Range(10, 26);
         }
 
         if (yRandomSpawn > -yminimumDistance && yRandomSpawn < 0)
         {
-            yRandomSpawn = -Random.Range(20, 6);
+            yRandomSpawn = -Random.Range(19, 10);
         }
 
         if (enemyType == 0)

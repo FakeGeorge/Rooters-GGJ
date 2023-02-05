@@ -10,7 +10,7 @@ public class TreeOfLife : MonoBehaviour
 
     public Text textoTransicion;
 
-    private float hp;
+    public float hp;
     public float hpMax;
     [SerializeField] List<Sprite> mySprites = new List<Sprite>();
     Sprite currentSprite;
@@ -49,10 +49,7 @@ public class TreeOfLife : MonoBehaviour
             currentSprite = mySprites[3];
             StartCoroutine("Transicion");
         }
-        if ( hp <= 0 )
-        {
-
-        }
+        
     }
 
     IEnumerator Transicion()
