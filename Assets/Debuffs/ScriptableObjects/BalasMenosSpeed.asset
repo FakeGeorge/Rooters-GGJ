@@ -15,4 +15,4 @@ MonoBehaviour:
   myName: Balas lentas
   myDescription: "Las balas ir\xE1n m\xE1s lentas"
   ID: SlowBullets
-  mySprite: {fileID: 21300000, guid: e580de8f48519a14aa7466f2bfb5a749, type: 3}
+  mySprite: {fileID: 21300000, guid: 5d81b31de92f396479a3ffc001cd78e7, type: 3}

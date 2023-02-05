@@ -14,7 +14,7 @@ public class ActivateDebuffs : MonoBehaviour
 
     private void Start()
     {
-        RandomDebuffs();
+        //RandomDebuffs();
     }
     public void RandomDebuffs()  //Ejecutar cuando haya que mostrar debuffs
     {
@@ -61,7 +61,31 @@ public class ActivateDebuffs : MonoBehaviour
     {
         Debug.Log(IDDebuff.text);
 
-        if (IDDebuff.text == "loquesea")
+        if (IDDebuff.text == "-Speed")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "SlowBullets")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "Buff")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "-Atk")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "+CD")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "-hp")
+        {
+            //hacer efecto del debuff
+        }
+        if (IDDebuff.text == "AllDebuffs")
         {
             //hacer efecto del debuff
         }

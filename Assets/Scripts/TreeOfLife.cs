@@ -9,6 +9,7 @@ public class TreeOfLife : MonoBehaviour
     [SerializeField] List<Sprite> mySprites = new List<Sprite>();
     Sprite currentSprite;
 
+    [SerializeField] ParticleSystem ps_treeHit;
     private void Start()
     {
         currentSprite = gameObject.GetComponent<SpriteRenderer>().sprite;
@@ -17,7 +18,7 @@ public class TreeOfLife : MonoBehaviour
     public void GetDamage(float damage)
     {
         hp -= damage;
-
+        ps_treeHit.Play();
         //animación de ser golpeado/particulas/algo
 
         if (hp <= hp*.75f && GameManager.miEpoca == GameManager.Epocas.prehistoria)  //si está a 75% vida y en prehistoria, cambia a medievo
