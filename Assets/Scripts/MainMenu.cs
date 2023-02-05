@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] Settings settings;
-    [SerializeField] AudioClip BGMIngame;
+    [SerializeField] AudioClip BGMIngame, BGMMenu;
     [SerializeField] float timeforStart; //por si animación
     [SerializeField] GameObject creditos;
 
     [SerializeField] Button start, options, credits, exit;
+
     public void StartGame()
     {
         StopButtons();
@@ -27,8 +28,8 @@ public class MainMenu : MonoBehaviour
     }
     void ChangeSceneToGame()
     {
-        settings.changeBGM(BGMIngame);
-        SceneManager.LoadScene("Juego"); //Juego = nombre de la escena del juego
+        //settings.changeBGM(BGMIngame);
+        SceneManager.LoadScene("Game"); //Juego = nombre de la escena del juego
     }
 
     public void Settings()

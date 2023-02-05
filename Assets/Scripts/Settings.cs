@@ -9,7 +9,24 @@ public class Settings : MonoBehaviour
 
     [SerializeField] AudioMixer AM;
     [SerializeField] AudioSource BGM, SFX;
+
+
     //[SerializeField] AudioClip BGM_Menu, BGM_Game;
+    //public static Settings instance = null;
+    /*
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(base.gameObject);
+        }
+        else
+        {
+            Destroy(base.gameObject);
+        }
+    }
+    */
 
     public void PlaySFX(AudioClip clip)
     {
@@ -27,7 +44,6 @@ public class Settings : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject); //esto o poner otro en la otra escena
         ChangeVolumeBGM(-30f);
         ChangeVolumeSFX(-30f);
     }
