@@ -22438,6 +22438,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Settings
       objectReference: {fileID: 0}
+    - target: {fileID: 8545013222964900249, guid: 4689f85ca849e3346a175b5327c0e8a5, type: 3}
+      propertyPath: BGM_Menu
+      value: 
+      objectReference: {fileID: 8300000, guid: e2b4985a22ba03041a4cefd0b9680b1d, type: 3}
     - target: {fileID: 8545013222964900250, guid: 4689f85ca849e3346a175b5327c0e8a5, type: 3}
       propertyPath: m_RootOrder
       value: 2

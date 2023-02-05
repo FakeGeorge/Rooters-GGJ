@@ -11,9 +11,9 @@ public class Settings : MonoBehaviour
     [SerializeField] AudioSource BGM, SFX;
 
 
-    //[SerializeField] AudioClip BGM_Menu, BGM_Game;
-    //public static Settings instance = null;
-    /*
+    [SerializeField] AudioClip BGM_Menu;
+    public static Settings instance = null;
+    
     private void Awake()
     {
         if (instance == null)
@@ -23,10 +23,11 @@ public class Settings : MonoBehaviour
         }
         else
         {
+            instance.changeBGM(BGM_Menu);
             Destroy(base.gameObject);
         }
     }
-    */
+    
 
     public void PlaySFX(AudioClip clip)
     {

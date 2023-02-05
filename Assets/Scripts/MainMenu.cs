@@ -13,6 +13,11 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] Button start, options, credits, exit;
 
+    private void Start()
+    {
+        settings = GameObject.Find("Settings").GetComponent<Settings>();
+    }
+
     public void StartGame()
     {
         StopButtons();
@@ -28,7 +33,7 @@ public class MainMenu : MonoBehaviour
     }
     void ChangeSceneToGame()
     {
-        //settings.changeBGM(BGMIngame);
+        settings.changeBGM(BGMIngame);
         SceneManager.LoadScene("Game"); //Juego = nombre de la escena del juego
     }
 
