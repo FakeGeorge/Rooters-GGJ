@@ -11,6 +11,9 @@ public class TreeOfLife : MonoBehaviour
 
     public Text textoTransicion;
 
+    public Image HealthBar;
+    float lerpSpeed;
+
     public float hp;
     public float hpMax;
     [SerializeField] List<Sprite> mySprites = new List<Sprite>();
@@ -26,6 +29,13 @@ public class TreeOfLife : MonoBehaviour
         textoTransicion.gameObject.SetActive(false);
 
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        HealthBarFiller();
+        ColorChanger();
+        lerpSpeed = 3f * Time.deltaTime;
     }
 
     public void GetDamage(float damage)
@@ -121,5 +131,17 @@ public class TreeOfLife : MonoBehaviour
         textoTransicion.gameObject.SetActive(true);
         textoTransicion.color = Color.red;
         textoTransicion.text = "FIN DEL JUEGO";
+    }
+
+    void HealthBarFiller()
+    {
+        HealthBar.fillAmount = Mathf.Lerp(HealthBar.fillAmount, (hp / hpMax), lerpSpeed);
+
+    }
+
+    void ColorChanger()
+    {
+        Color heathColor = Color.Lerp(Color.red, Color.green, (hp / hpMax));
+        HealthBar.color = heathColor;
     }
 }

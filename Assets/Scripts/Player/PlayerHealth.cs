@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -30,8 +31,6 @@ public class PlayerHealth : MonoBehaviour
         if (health > maxHealth) health = maxHealth;
 
         lerpSpeed = 3f * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.F)) TakeDamage(5);
     }
 
     void HealthBarFiller()
@@ -52,7 +51,10 @@ public class PlayerHealth : MonoBehaviour
         {
             settings.PlaySFX(Daño);
             health -= damageValue;
-
+        }
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
     public void Heal(float healValue)
