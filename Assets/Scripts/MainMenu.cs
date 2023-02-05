@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] Settings settings;
     [SerializeField] AudioClip BGMIngame, BGMMenu;
+    [SerializeField] AudioClip Click;
     [SerializeField] float timeforStart; //por si animación
     [SerializeField] GameObject creditos;
 
@@ -16,6 +17,12 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         settings = GameObject.Find("Settings").GetComponent<Settings>();
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        Debug.Log("1");
+        settings.PlaySFX(clip);
     }
 
     public void StartGame()

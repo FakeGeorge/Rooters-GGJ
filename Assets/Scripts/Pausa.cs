@@ -8,9 +8,14 @@ public class Pausa : MonoBehaviour
     [SerializeField] GameObject pause;
     Settings settings;
 
+    [SerializeField] AudioClip Click;
     private void Start()
     {
         settings = GameObject.Find("Settings").GetComponent<Settings>();
+    }
+    public void PlaySound(AudioClip clip)
+    {
+        settings.PlaySFX(clip);
     }
 
     private void Update()

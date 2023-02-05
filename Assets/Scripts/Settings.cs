@@ -31,6 +31,7 @@ public class Settings : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
+        Debug.Log("2");
         SFX.clip = clip;
         SFX.pitch = Random.Range(0.8f, 1.2f);
         SFX.Play();

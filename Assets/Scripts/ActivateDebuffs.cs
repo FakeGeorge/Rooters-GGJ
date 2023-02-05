@@ -19,9 +19,9 @@ public class ActivateDebuffs : MonoBehaviour
         //RandomDebuffs();
     }
 
-    public void MakeSound()
+    public void PlaySound(AudioClip clip)
     {
-        settings.PlaySFX(Click);
+        settings.PlaySFX(clip);
     }
 
     public void RandomDebuffs()  //Ejecutar cuando haya que mostrar debuffs

@@ -775,6 +775,7 @@ MonoBehaviour:
   AM: {fileID: 24100000, guid: e645da17d1d602f4989d4f32f41fb775, type: 2}
   BGM: {fileID: 8545013222964900251}
   SFX: {fileID: 8545013222964900244}
+  BGM_Menu: {fileID: 8300000, guid: e2b4985a22ba03041a4cefd0b9680b1d, type: 3}
 --- !u!82 &8545013222964900251
 AudioSource:
   m_ObjectHideFlags: 0
