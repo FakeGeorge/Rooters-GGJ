@@ -11,39 +11,52 @@ public class Base_Enemy : MonoBehaviour
     public Transform enemigo;
 
     float timer;
+    float timeDif;
 
     Animator Anim;
+
+    public GameObject blood;
+    public GameObject bloodInstantiated;
+    public GameObject player;
 
     private void Start()
     {
         health = maxHealth;
 
+        timer = Time.time;
+
         Anim = enemigo.GetComponent<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
         Anim.SetBool("IsAttacking", false);
     }
-    private void Update()
+
+    private void FixedUpdate()
     {
         transform.position = new Vector3(enemigo.position.x, enemigo.position.y, 0f);
-        timer += Time.deltaTime;
+        timeDif = Time.time - timer;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            DestroyEnemy();
+        }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Dentro player");
-        Debug.Log("timer jeje " + timer);
-        if (collision.gameObject.CompareTag("Player") && timer > 2f)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            timer = 0;
             Anim.SetBool("IsAttacking", true);
-            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(attackDamage); 
-            Debug.Log("Estoy entrando Player");
+            InvokeRepeating("RepeatAttack", 0, 2);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Me sali");
-        Anim.SetBool("IsAttacking", false);
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Anim.SetBool("IsAttacking", false);
+            CancelInvoke();
+        }
     }
 
     public void TakeDamage(float damageValue)
@@ -54,14 +67,29 @@ public class Base_Enemy : MonoBehaviour
         }
         else if (health <= 0)
         {
-            //Activar boliches
             DestroyEnemy();
         }
     }
 
     public void DestroyEnemy()
     {
+        bloodInstantiated = Instantiate(blood, transform.position, Quaternion.identity);
+        enemigo.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        Invoke("DestroyBlood", 1f);
+    }
+
+    void DestroyBlood()
+    {
+        Destroy(bloodInstantiated);
         Destroy(enemigo.gameObject);
         Destroy(gameObject);
+    }
+
+    void RepeatAttack()
+    {
+        Anim.SetBool("IsAttacking", true);
+        player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+        Debug.Log("timer despues " + timer);
     }
 }

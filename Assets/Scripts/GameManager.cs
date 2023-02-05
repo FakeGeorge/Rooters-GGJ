@@ -61,13 +61,17 @@ public class GameManager : MonoBehaviour
         if (enemyType == 0)
         {
             GameObject myEnemy = Instantiate(enemy.gameObject, new Vector2(enemy.position.x + xRandomSpawn, enemy.position.y + yRandomSpawn), Quaternion.identity);
+            myEnemy.SetActive(true);
             GameObject myCollider = Instantiate(enemyCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            myCollider.SetActive(true);
             myCollider.GetComponent<Base_Enemy>().enemigo = myEnemy.transform;
         }
         else if (enemyType == 1)
         {
             GameObject myEnemy = Instantiate(enemyTree.gameObject, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            myEnemy.SetActive(true);
             GameObject myCollider = Instantiate(enemyTreeCollider, new Vector2(xRandomSpawn, yRandomSpawn), Quaternion.identity);
+            myCollider.SetActive(true);
             myCollider.GetComponent<Tree_Enemy>().enemigo = myEnemy.transform;
         }
         //yield return new WaitForSeconds(2);
