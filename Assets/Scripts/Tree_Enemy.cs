@@ -19,6 +19,9 @@ public class Tree_Enemy : MonoBehaviour
     public GameObject bloodInstantiated;
     public GameObject tree;
 
+    [SerializeField] Settings settings;
+    [SerializeField] AudioClip Golpear;
+
     private void Start()
     {
         health = maxHealth;
@@ -28,6 +31,8 @@ public class Tree_Enemy : MonoBehaviour
         Anim = enemigo.GetComponent<Animator>();
         tree = GameObject.FindGameObjectWithTag("Tree");
         Anim.SetBool("IsAttacking", false);
+
+        settings = GameObject.Find("Settings").GetComponent<Settings>();
     }
 
     private void FixedUpdate()
@@ -35,10 +40,7 @@ public class Tree_Enemy : MonoBehaviour
         transform.position = new Vector3(enemigo.position.x, enemigo.position.y, 0f);
         timeDif = Time.time - timer;
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            DestroyEnemy();
-        }
+
     }
 
     /*private void OnTriggerStay2D(Collider2D collision)
@@ -101,6 +103,9 @@ public class Tree_Enemy : MonoBehaviour
         bloodInstantiated = Instantiate(blood, transform.position, Quaternion.identity);
         enemigo.gameObject.SetActive(false);
         gameObject.SetActive(false);
+
+        settings.PlaySFX(Golpear);
+
         Invoke("DestroyBlood", 1f);
     }
 

@@ -19,6 +19,9 @@ public class Base_Enemy : MonoBehaviour
     public GameObject bloodInstantiated;
     public GameObject player;
 
+    [SerializeField] Settings settings;
+    [SerializeField] AudioClip Golpear;
+
     private void Start()
     {
         health = maxHealth;
@@ -28,6 +31,9 @@ public class Base_Enemy : MonoBehaviour
         Anim = enemigo.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         Anim.SetBool("IsAttacking", false);
+
+        settings = GameObject.Find("Settings").GetComponent<Settings>();
+
     }
 
     private void FixedUpdate()
@@ -35,10 +41,7 @@ public class Base_Enemy : MonoBehaviour
         transform.position = new Vector3(enemigo.position.x, enemigo.position.y, 0f);
         timeDif = Time.time - timer;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DestroyEnemy();
-        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -88,7 +91,7 @@ public class Base_Enemy : MonoBehaviour
         bloodInstantiated = Instantiate(blood, transform.position, Quaternion.identity);
         enemigo.gameObject.SetActive(false);
         gameObject.SetActive(false);
-        //SONIDO DE MUERTE
+        settings.PlaySFX(Golpear);
         Invoke("DestroyBlood", 1f);
     }
 

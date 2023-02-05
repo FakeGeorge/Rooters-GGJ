@@ -9,9 +9,15 @@ public class PlayerHealth : MonoBehaviour
     public float health, maxHealth;
     float lerpSpeed;
 
+    [SerializeField] Settings settings;
+    [SerializeField] AudioClip Daño;
+
     private void Start()
     {
         health = maxHealth;
+
+        settings = GameObject.Find("Settings").GetComponent<Settings>();
+
     }
 
     private void Update()
@@ -31,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
     void HealthBarFiller()
     {
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, (health / maxHealth), lerpSpeed);
-        
+
     }
 
     void ColorChanger()
@@ -44,7 +50,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health > 0)
         {
+            settings.PlaySFX(Daño);
             health -= damageValue;
+
         }
     }
     public void Heal(float healValue)
