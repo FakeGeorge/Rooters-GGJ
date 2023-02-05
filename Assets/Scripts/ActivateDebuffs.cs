@@ -42,6 +42,7 @@ public class ActivateDebuffs : MonoBehaviour
         card.transform.GetChild(2).GetComponent<Image>().sprite = debuff.mySprite;
         card.transform.GetChild(3).GetComponent<Text>().text = debuff.myName;
         card.transform.GetChild(4).GetComponent<Text>().text = debuff.myDescription;
+        card.transform.GetChild(5).GetComponent<Text>().text = debuff.ID;
     }
 
     void ShowCards()
@@ -53,7 +54,7 @@ public class ActivateDebuffs : MonoBehaviour
 
     public void ClickThis(Button thisButton)
     {
-        ExecuteDebuff(thisButton.gameObject.transform.GetChild(1).GetComponent<Text>());
+        ExecuteDebuff(thisButton.gameObject.transform.GetChild(5).GetComponent<Text>());
     }
 
     void ExecuteDebuff(Text IDDebuff)
