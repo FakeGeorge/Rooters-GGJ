@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,6 +107,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1265,10 +1277,10 @@ TextureImporter:
       Atlas_21: 1780409466
       Atlas_4: -576159828
       Atlas_16: 1968410723
-      Atlas_39: -234970903
-      Atlas_37: 118710199
       Atlas_36: 1191937721
+      Atlas_37: 118710199
       Atlas_38: 1920806476
+      Atlas_39: -234970903
       Atlas_45: -715014051
       Atlas_42: 1171327379
       Atlas_41: -353596453
