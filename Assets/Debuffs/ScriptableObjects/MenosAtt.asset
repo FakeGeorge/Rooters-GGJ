@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 342d958814531964b852c368d97557ab, type: 3}
   m_Name: MenosAtt
   m_EditorClassIdentifier: 
-  myName: -Att
+  myName: Arma rota
   myDescription: baja el ataque
+  ID: -Atk
   mySprite: {fileID: 21300000, guid: e580de8f48519a14aa7466f2bfb5a749, type: 3}
